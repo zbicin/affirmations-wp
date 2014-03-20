@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Affirmations.ViewModel;
 
 namespace Affirmations.View
 {
@@ -15,6 +16,18 @@ namespace Affirmations.View
         public DetailsPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            string affirmationIndex = "-1";
+
+            if (NavigationContext.QueryString.TryGetValue("affirmationIndex", out affirmationIndex))
+            {
+                DataContext = new DetailsViewModel(affirmationIndex);
+            }
         }
     }
 }
