@@ -20,13 +20,27 @@ namespace Affirmations.View
         {
             InitializeComponent();
 
+            Repository.Init();
             DataContext = new ListViewModel();
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
 
-        private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)        {            TextBlock tbSender = (TextBlock)sender;
-            Affirmation affirmation = (Affirmation)tbSender.DataContext;            List<Affirmation> allAffirmations = ((ListViewModel)DataContext).Affirmations;            int affirmationIndex = allAffirmations.IndexOf(affirmation);                     NavigationService.Navigate(new Uri("/View/DetailsPage.xaml?affirmationIndex=" + affirmationIndex, UriKind.Relative));        }
+        private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            TextBlock tbSender = (TextBlock)sender;
+            Affirmation affirmation = (Affirmation)tbSender.DataContext;
+            List<Affirmation> allAffirmations = ((ListViewModel)DataContext).Affirmations;
+            int affirmationIndex = allAffirmations.IndexOf(affirmation);
+         
+            NavigationService.Navigate(new Uri("/View/DetailsPage.xaml?affirmationIndex=" + affirmationIndex, UriKind.Relative));
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/View/AddPage.xaml", UriKind.Relative));
+        }
+
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

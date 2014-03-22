@@ -15,7 +15,7 @@
 	<phone:PhoneApplicationPage.ApplicationBar>
 		<shell:ApplicationBar>
 			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/edit.png" IsEnabled="True" Text="edytuj"/>
-			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/delete.png" IsEnabled="True" Text="usuń"/>
+			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/delete.png" IsEnabled="True" Text="usuń" x:Name="buttonDelete" Click="buttonDelete_Click"/>
 		</shell:ApplicationBar>
 	</phone:PhoneApplicationPage.ApplicationBar>
 
