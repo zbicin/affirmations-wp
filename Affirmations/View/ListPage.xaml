@@ -16,6 +16,7 @@
 		<shell:ApplicationBar Mode="Default">
 			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/add.png" IsEnabled="True" Text="dodaj"/>
 			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/manage.png" IsEnabled="True" Text="wybierz"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/play.smartdj.png" IsEnabled="True" Text="powtórz" />
 		</shell:ApplicationBar>
 	</phone:PhoneApplicationPage.ApplicationBar>
 
@@ -59,7 +60,8 @@
                         <TextBlock
                             Text="{Binding Text}"
                             Style="{StaticResource PhoneTextExtraLargeStyle}"
-                            Tap="TextBlock_Tap" />
+                            Tap="TextBlock_Tap"
+                            Margin="0,0,12,0"/>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>
             </phone:LongListSelector>
