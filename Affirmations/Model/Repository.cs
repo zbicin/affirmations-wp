@@ -17,7 +17,7 @@ namespace Affirmations.Model
                 CreatedAt = new DateTime(2014,3,19)
             },
             new Affirmation {
-                Text = "Lorem lipsum",
+                Text = "Lorem lipsum bardzo długa nazwa yeeeeaa jeszcze jeszcze dłuższa",
                 CreatedAt = new DateTime(2014,2,10)
             }
         };

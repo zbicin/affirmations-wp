@@ -38,10 +38,10 @@
         		<RowDefinition Height="*"/>
         	</Grid.RowDefinitions>
         	<StackPanel Margin="0">
-        		<TextBlock Margin="0,0,0,12" Text="Lorem lipsum treść leci tutaj bardzo długa" Style="{StaticResource PhoneTextLargeStyle}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        		<TextBlock Margin="0,0,0,12" Text="{Binding Affirmation.Text}" Style="{StaticResource PhoneTextLargeStyle}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         		<StackPanel Orientation="Horizontal" Margin="0">
         			<TextBlock TextWrapping="Wrap" Text="Utworzona:" Style="{StaticResource PhoneTextSubtleStyle}" Margin="0,0,12,0"/>
-        			<TextBlock TextWrapping="Wrap" Text="3 dni temu (12-02-2013)"/>
+        			<TextBlock TextWrapping="Wrap" Text="{Binding CreatedAtString}"/>
         		</StackPanel>
         	</StackPanel>
 
