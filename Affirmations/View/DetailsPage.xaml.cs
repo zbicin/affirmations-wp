@@ -50,5 +50,10 @@ namespace Affirmations.View
                 }
             }
         }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/View/AddPage.xaml?affirmationId=" + affirmationIndex, UriKind.Relative));
+        }
     }
 }
