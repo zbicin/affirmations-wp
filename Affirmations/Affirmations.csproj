@@ -103,6 +103,10 @@
       <DependentUpon>DetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="View\EditPage.xaml.cs">
+      <DependentUpon>EditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EditViewModel.cs" />
     <Compile Include="View\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
@@ -131,6 +135,10 @@
     <Page Include="View\DetailsPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ListPage.xaml">
       <SubType>Designer</SubType>

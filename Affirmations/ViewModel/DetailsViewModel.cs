@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Affirmations.ViewModel
 {
-    public class DetailsViewModel
+    public class DetailsViewModel : BindableBase
     {
         public Affirmation Affirmation { get; set; }
         public string CreatedAtString { get; set; }

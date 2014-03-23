@@ -10,11 +10,13 @@ using Microsoft.Phone.Shell;
 using Affirmations.Resources;
 using Affirmations.Model;
 using Affirmations.ViewModel;
+using System.Collections.ObjectModel;
 
 namespace Affirmations.View
 {
     public partial class ListPage : PhoneApplicationPage
     {
+
         // Constructor
         public ListPage()
         {
@@ -22,6 +24,7 @@ namespace Affirmations.View
 
             Repository.Init();
             DataContext = new ListViewModel();
+
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -30,7 +33,7 @@ namespace Affirmations.View
         {
             TextBlock tbSender = (TextBlock)sender;
             Affirmation affirmation = (Affirmation)tbSender.DataContext;
-            List<Affirmation> allAffirmations = ((ListViewModel)DataContext).Affirmations;
+            ObservableCollection<Affirmation> allAffirmations = ((ListViewModel)DataContext).Affirmations;
             int affirmationIndex = allAffirmations.IndexOf(affirmation);
          
             NavigationService.Navigate(new Uri("/View/DetailsPage.xaml?affirmationIndex=" + affirmationIndex, UriKind.Relative));
@@ -39,7 +42,7 @@ namespace Affirmations.View
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/View/AddPage.xaml", UriKind.Relative));
-        }
+        }       
 
 
         // Sample code for building a localized ApplicationBar

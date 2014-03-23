@@ -58,7 +58,7 @@
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
                         <TextBlock
-                            Text="{Binding Text}"
+                            Text="{Binding Text, Mode=TwoWay}"
                             Style="{StaticResource PhoneTextExtraLargeStyle}"
                             Tap="TextBlock_Tap"
                             Margin="0,0,12,0"/>

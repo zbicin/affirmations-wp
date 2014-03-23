@@ -16,17 +16,7 @@ namespace Affirmations.Model
         private static string AFFIRMATIONS_KEY = "affirmations";
         private static bool IsInitiated = false;
 
-        public static List<Affirmation> Affirmations = new List<Affirmation>
-        {
-            new Affirmation {
-                Text = "Jesteś zwycięzcą!",
-                CreatedAt = new DateTime(2014,3,19)
-            },
-            new Affirmation {
-                Text = "Lorem lipsum bardzo długa nazwa yeeeeaa jeszcze jeszcze dłuższa",
-                CreatedAt = new DateTime(2014,2,10)
-            }
-        };
+        public static ObservableCollection<Affirmation> Affirmations { get; set; }
 
         public static void SaveChanges()
         {
@@ -54,7 +44,7 @@ namespace Affirmations.Model
             if (!IsInitiated)
             {
                 var settings = IsolatedStorageSettings.ApplicationSettings;
-                Affirmations = new List<Affirmation>();
+                Affirmations = new ObservableCollection<Affirmation>();
 
                 if (settings.Contains(AFFIRMATIONS_KEY))
                 {
@@ -64,7 +54,7 @@ namespace Affirmations.Model
                     StringReader stringReader = new StringReader(serializedAffirmations);
                     XmlSerializer xmlSerializer = new XmlSerializer(Affirmations.GetType());
 
-                    Affirmations = (List<Affirmation>)xmlSerializer.Deserialize(stringReader);
+                    Affirmations = (ObservableCollection<Affirmation>)xmlSerializer.Deserialize(stringReader);
                 }
 
                 IsInitiated = true;
