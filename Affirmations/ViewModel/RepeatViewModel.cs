@@ -4,18 +4,15 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Affirmations.ViewModel
 {
-    public class ListViewModel : BindableBase
+    public class RepeatViewModel
     {
         public ObservableCollection<Affirmation> Affirmations { get; set; }
-        
-        public Boolean AllowRepeat { get {
-            return Affirmations != null && Affirmations.Count > 0;
-        }}
 
-        public ListViewModel()
+        public RepeatViewModel()
         {
             Affirmations = Repository.Affirmations;
         }

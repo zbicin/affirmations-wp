@@ -6,16 +6,24 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Affirmations.View"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
-	<phone:PhoneApplicationPage.ApplicationBar>
+    <phone:PhoneApplicationPage.Resources>
+        <local:IntegerToVisibilityConverter x:Key="IntegerToVisibility" />
+        <local:IntegerToBooleanConverter x:Key="IntegerToBoolean" />
+    </phone:PhoneApplicationPage.Resources>
+    <phone:PhoneApplicationPage.ApplicationBar>
 		<shell:ApplicationBar Mode="Default">
 			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/add.png" IsEnabled="True" Text="dodaj" x:Name="buttonAdd" Click="buttonAdd_Click"/>
-            <shell:ApplicationBarIconButton x:Name="buttonRepeat" IconUri="/Assets/AppBar/play.smartdj.png" IsEnabled="True" Text="powtórz" />
+            <shell:ApplicationBarIconButton x:Name="buttonRepeat" 
+                                            IconUri="/Assets/AppBar/play.smartdj.png" 
+                                            Text="powtórz" 
+                                            Click="buttonRepeat_Click" />
 		</shell:ApplicationBar>
 	</phone:PhoneApplicationPage.ApplicationBar>
 
@@ -53,18 +61,26 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:LongListSelector x:Name="listAffirmations" ItemsSource="{Binding Affirmations}" Margin="12,0">
-                <phone:LongListSelector.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock
-                            Text="{Binding Text, Mode=TwoWay}"
-                            Style="{StaticResource PhoneTextExtraLargeStyle}"
-                            Tap="TextBlock_Tap"
-                            Margin="0"/>
-                    </DataTemplate>
-                </phone:LongListSelector.ItemTemplate>
-            </phone:LongListSelector>
-
+            <StackPanel>
+                <TextBlock Text="Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu."
+                           Style="{StaticResource PhoneTextGroupHeaderStyle}"
+                           TextWrapping="Wrap"
+                           Visibility="{Binding ItemsSource.Count, ElementName=listAffirmations, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}"/>
+                <phone:LongListSelector x:Name="listAffirmations" 
+                                        Visibility="{Binding ItemsSource.Count, RelativeSource={RelativeSource Self},Converter={StaticResource IntegerToVisibility}}"
+                                        ItemsSource="{Binding Affirmations}" 
+                                        Margin="12,0">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding Text, Mode=TwoWay}"
+                                Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                Tap="TextBlock_Tap"
+                                Margin="0"/>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
+            </StackPanel>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are

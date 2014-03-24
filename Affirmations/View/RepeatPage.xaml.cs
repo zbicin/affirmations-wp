@@ -7,19 +7,16 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Affirmations.ViewModel;
 
 namespace Affirmations.View
 {
-    public partial class WelcomePage : PhoneApplicationPage
+    public partial class RepeatPage : PhoneApplicationPage
     {
-        public WelcomePage()
+        public RepeatPage()
         {
             InitializeComponent();
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
+            DataContext = new RepeatViewModel();
         }
     }
 }

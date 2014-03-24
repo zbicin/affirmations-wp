@@ -42,6 +42,11 @@ namespace Affirmations.View
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/View/AddPage.xaml", UriKind.Relative));
+        }
+
+        private void buttonRepeat_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
         }       
 
 
