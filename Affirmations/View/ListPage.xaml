@@ -15,8 +15,7 @@
 	<phone:PhoneApplicationPage.ApplicationBar>
 		<shell:ApplicationBar Mode="Default">
 			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/add.png" IsEnabled="True" Text="dodaj" x:Name="buttonAdd" Click="buttonAdd_Click"/>
-			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/manage.png" IsEnabled="True" Text="wybierz"/>
-            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/play.smartdj.png" IsEnabled="True" Text="powtórz" />
+            <shell:ApplicationBarIconButton x:Name="buttonRepeat" IconUri="/Assets/AppBar/play.smartdj.png" IsEnabled="True" Text="powtórz" />
 		</shell:ApplicationBar>
 	</phone:PhoneApplicationPage.ApplicationBar>
 
@@ -54,14 +53,14 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:LongListSelector x:Name="listAffirmations" ItemsSource="{Binding Affirmations}">
+            <phone:LongListSelector x:Name="listAffirmations" ItemsSource="{Binding Affirmations}" Margin="12,0">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
                         <TextBlock
                             Text="{Binding Text, Mode=TwoWay}"
                             Style="{StaticResource PhoneTextExtraLargeStyle}"
                             Tap="TextBlock_Tap"
-                            Margin="0,0,12,0"/>
+                            Margin="0"/>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>
             </phone:LongListSelector>

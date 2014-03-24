@@ -33,6 +33,8 @@ namespace Affirmations.View
                 viewModel = new EditViewModel(affirmationIndex);
                 DataContext = viewModel;
             }
+			
+			tbText.Focus();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -55,5 +57,20 @@ namespace Affirmations.View
             }
 
         }
+
+        private void PhoneApplicationPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            tbText.SelectionStart = tbText.Text.Length;
+			tbText.Focus();
+        }
+
+        private void tbText_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                Focus(); // focus the page to hide the keypad
+            }
+        }
+
     }
 }
