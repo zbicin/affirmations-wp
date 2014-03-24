@@ -6,6 +6,9 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:cimbalinoBehaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
     xmlns:local="clr-namespace:Affirmations.View"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -15,17 +18,19 @@
     shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
         <local:IntegerToVisibilityConverter x:Key="IntegerToVisibility" />
-        <local:IntegerToBooleanConverter x:Key="IntegerToBoolean" />
     </phone:PhoneApplicationPage.Resources>
-    <phone:PhoneApplicationPage.ApplicationBar>
-		<shell:ApplicationBar Mode="Default">
-			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/add.png" IsEnabled="True" Text="dodaj" x:Name="buttonAdd" Click="buttonAdd_Click"/>
-            <shell:ApplicationBarIconButton x:Name="buttonRepeat" 
+
+    <i:Interaction.Behaviors>
+        <cimbalinoBehaviors:ApplicationBarBehavior>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/add.png" Text="dodaj" x:Name="buttonAdd" Click="buttonAdd_Click"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton x:Name="buttonRepeat" 
                                             IconUri="/Assets/AppBar/play.smartdj.png" 
-                                            Text="powtórz" 
+                                            IsEnabled="{Binding Affirmations.Count}"
+                                            Text="powtórz"
                                             Click="buttonRepeat_Click" />
-		</shell:ApplicationBar>
-	</phone:PhoneApplicationPage.ApplicationBar>
+        </cimbalinoBehaviors:ApplicationBarBehavior>
+    </i:Interaction.Behaviors>
+    
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -65,7 +70,7 @@
                 <TextBlock Text="Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu."
                            Style="{StaticResource PhoneTextGroupHeaderStyle}"
                            TextWrapping="Wrap"
-                           Visibility="{Binding ItemsSource.Count, ElementName=listAffirmations, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}"/>
+                           Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}"/>
                 <phone:LongListSelector x:Name="listAffirmations" 
                                         Visibility="{Binding ItemsSource.Count, RelativeSource={RelativeSource Self},Converter={StaticResource IntegerToVisibility}}"
                                         ItemsSource="{Binding Affirmations}" 
