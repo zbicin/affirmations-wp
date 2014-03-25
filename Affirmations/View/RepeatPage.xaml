@@ -9,41 +9,35 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:cimbalinoBehaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
+    xmlns:cimbalinoHelpers="clr-namespace:Cimbalino.Phone.Toolkit.Helpers;assembly=Cimbalino.Phone.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
-    <!--<i:Interaction.Behaviors>
-        <cimbalinoBehaviors:MultiApplicationBarBehavior SelectedIndex="{Binding ApplicationBarSelectedIndex}">
-            <cimbalinoBehaviors:ApplicationBar>
-                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding AddItemCommand, Mode=OneTime}" IconUri="/Images/appbar.add.rest.png" Text="add" />
-                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding EnableSelectionCommand, Mode=OneTime}" IconUri="/Images/appbar.manage.rest.png" Text="select" />
-            </cimbalinoBehaviors:ApplicationBar>
-            <cimbalinoBehaviors:ApplicationBar>
-                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding DeleteItemsCommand, Mode=OneTime}" CommandParameter="{Binding SelectedItems, ElementName=ItemsMultiselectList}" IconUri="/Images/appbar.delete.rest.png" Text="delete" />
-            </cimbalinoBehaviors:ApplicationBar>
-        </cimbalinoBehaviors:MultiApplicationBarBehavior>
-    </i:Interaction.Behaviors>-->
-
-    <!-- remaining code -->
-	<phone:PhoneApplicationPage.ApplicationBar>
-		<shell:ApplicationBar>
-			<shell:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" IsEnabled="True" Text="zakończ"/>
-			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" IsEnabled="True" Text="poprzednia"/>
-			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" IsEnabled="True" Text="następna"/>
-			<shell:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Cancel.png" 
+    <phone:PhoneApplicationPage.Resources>
+        <cimbalinoHelpers:NamescopeBinding x:Key="listAffirmations" Source="{Binding ElementName=listAffirmations}" />
+    </phone:PhoneApplicationPage.Resources>
+    <i:Interaction.Behaviors>
+        <cimbalinoBehaviors:ApplicationBarBehavior Mode="{Binding BarMode}">
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" IsEnabled="True" Text="zakończ"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" IsEnabled="True" Text="poprzednia"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" 
+                                                         IsEnabled="True" 
+                                                         Text="następna"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Cancel.png" 
                                             Text="powrót"
                                             x:Name="buttonCancel"
                                             Click="buttonCancel_Click"/>
-		</shell:ApplicationBar>
-	</phone:PhoneApplicationPage.ApplicationBar>
+
+        </cimbalinoBehaviors:ApplicationBarBehavior>
+    </i:Interaction.Behaviors>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <phone:Pivot ItemsSource="{Binding Affirmations}">
+        <phone:Pivot ItemsSource="{Binding Affirmations}" SelectionChanged="Pivot_SelectionChanged">
             <phone:Pivot.HeaderTemplate>
                 <DataTemplate>
                     <Grid />
@@ -53,8 +47,8 @@
                 <DataTemplate>
                     <StackPanel Orientation="Vertical"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Margin="12,-54,12,0">
+                                VerticalAlignment="Top"
+                                Margin="12,0,12,0">
                         <TextBlock x:Name="tbContents"
                                    Text="{Binding Text}"
                                    Style="{StaticResource PhoneTextExtraLargeStyle}"
@@ -64,11 +58,14 @@
                         <TextBlock x:Name="tbProgress"
                                    Text="1 z 10"
                                    Style="{StaticResource PhoneTextSubtleStyle}"
-                                   TextAlignment="Center"/>
+                                   TextAlignment="Center"
+                                   Margin="0,0,0,20"/>
+                        <TextBlock Text="Przewiń, aby przejść do następnej afirmacji."
+                                   Style="{StaticResource PhoneTextAccentStyle}"
+                                   TextAlignment="Center" />
                     </StackPanel>
                 </DataTemplate>
             </phone:Pivot.ItemTemplate>
-
         </phone:Pivot>
     </Grid>
 

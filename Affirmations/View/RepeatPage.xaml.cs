@@ -13,10 +13,13 @@ namespace Affirmations.View
 {
     public partial class RepeatPage : PhoneApplicationPage
     {
+        private RepeatViewModel viewModel;
         public RepeatPage()
         {
             InitializeComponent();
-            DataContext = new RepeatViewModel();
+
+            viewModel = new RepeatViewModel();
+            DataContext = viewModel;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -28,6 +31,19 @@ namespace Affirmations.View
             else
             {
                 NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
+            }
+        }
+
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Pivot pivot = (Pivot)sender;
+
+            if(pivot.SelectedIndex == pivot.Items.Count-1) {
+                viewModel.BarMode = ApplicationBarMode.Default;
+            }
+            else
+            {
+                viewModel.BarMode = ApplicationBarMode.Minimized;
             }
         }
     }
