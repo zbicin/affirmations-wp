@@ -10,5 +10,14 @@ namespace Affirmations.Model
     {
         public String Text { get; set; }
         public DateTime CreatedAt { get; set; }
+
+        public Affirmation Clone()
+        {
+            return new Affirmation
+            {
+                Text = this.Text,
+                CreatedAt = this.CreatedAt
+            };
+        }
     }
 }
