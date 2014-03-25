@@ -10,9 +10,18 @@ namespace Affirmations.ViewModel
     public class ListViewModel : BindableBase
     {
         public ObservableCollection<Affirmation> Affirmations { get; set; }
-        public bool duppa { get {
-            return Affirmations != null && Affirmations.Count > 0; 
-        } }
+
+        public bool IsRepeatEnabled
+        {
+            get
+            {
+                return Affirmations.Count() > 0;
+            }
+            set
+            {
+                ;
+            }
+        }
         
 
         public ListViewModel()

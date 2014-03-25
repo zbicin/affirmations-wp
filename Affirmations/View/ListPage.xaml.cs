@@ -46,7 +46,14 @@ namespace Affirmations.View
 
         private void buttonRepeat_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
+            if (((ListViewModel)DataContext).Affirmations.Count > 0)
+            {
+                NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("Nie dodałeś jeszcze rzadnej afirmacji.");
+            }
         }       
 
 

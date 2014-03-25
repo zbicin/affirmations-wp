@@ -18,5 +18,17 @@ namespace Affirmations.View
             InitializeComponent();
             DataContext = new RepeatViewModel();
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
+            }
+        }
     }
 }

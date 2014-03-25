@@ -6,25 +6,44 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:cimbalinoBehaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+    <!--<i:Interaction.Behaviors>
+        <cimbalinoBehaviors:MultiApplicationBarBehavior SelectedIndex="{Binding ApplicationBarSelectedIndex}">
+            <cimbalinoBehaviors:ApplicationBar>
+                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding AddItemCommand, Mode=OneTime}" IconUri="/Images/appbar.add.rest.png" Text="add" />
+                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding EnableSelectionCommand, Mode=OneTime}" IconUri="/Images/appbar.manage.rest.png" Text="select" />
+            </cimbalinoBehaviors:ApplicationBar>
+            <cimbalinoBehaviors:ApplicationBar>
+                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding DeleteItemsCommand, Mode=OneTime}" CommandParameter="{Binding SelectedItems, ElementName=ItemsMultiselectList}" IconUri="/Images/appbar.delete.rest.png" Text="delete" />
+            </cimbalinoBehaviors:ApplicationBar>
+        </cimbalinoBehaviors:MultiApplicationBarBehavior>
+    </i:Interaction.Behaviors>-->
+
+    <!-- remaining code -->
 	<phone:PhoneApplicationPage.ApplicationBar>
 		<shell:ApplicationBar>
 			<shell:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" IsEnabled="True" Text="zakończ"/>
 			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" IsEnabled="True" Text="poprzednia"/>
 			<shell:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" IsEnabled="True" Text="następna"/>
-			<shell:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Cancel.png" IsEnabled="True" Text="powrót"/>
+			<shell:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Cancel.png" 
+                                            Text="powrót"
+                                            x:Name="buttonCancel"
+                                            Click="buttonCancel_Click"/>
 		</shell:ApplicationBar>
 	</phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <phone:Pivot Title="AFIRMACJE" ItemsSource="{Binding Affirmations}">
+        <phone:Pivot ItemsSource="{Binding Affirmations}">
             <phone:Pivot.HeaderTemplate>
                 <DataTemplate>
                     <Grid />

@@ -12,7 +12,7 @@ namespace Affirmations.ViewModel
 
         public EditViewModel(string affirmationIndex)
         {
-            EditedAffirmation = Repository.Affirmations[Convert.ToInt16(affirmationIndex)];
+            EditedAffirmation = Repository.Affirmations[Convert.ToInt16(affirmationIndex)].Clone();
         }
 
     }

@@ -44,16 +44,25 @@ namespace Affirmations.View
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            Repository.Affirmations[Convert.ToInt16(affirmationIndex)].Text = tbText.Text;
-            Repository.SaveChanges();
+            tbText.GetBindingExpression(PhoneTextBox.TextProperty).UpdateSource();
 
-            try
+            if (viewModel.EditedAffirmation.Text.Length > 0)
             {
-                NavigationService.GoBack();
+                Repository.Affirmations[Convert.ToInt16(affirmationIndex)] = viewModel.EditedAffirmation;
+                Repository.SaveChanges();
+
+                try
+                {
+                    NavigationService.GoBack();
+                }
+                catch (InvalidOperationException exception)
+                {
+                    NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
+                }
             }
-            catch (InvalidOperationException exception)
+            else
             {
-                NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
+                MessageBox.Show("Treść afirmacji nie może być pusta.");
             }
 
         }

@@ -123,6 +123,9 @@
     </Compile>
     <Compile Include="ViewModel\BindableBase.cs" />
     <Compile Include="ViewModel\ListViewModel.cs" />
+    <Compile Include="View\PlaygroundPage.xaml.cs">
+      <DependentUpon>PlaygroundPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RepeatPage.xaml.cs">
       <DependentUpon>RepeatPage.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlaygroundPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
