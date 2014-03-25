@@ -10,6 +10,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:cimbalinoBehaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
     xmlns:cimbalinoHelpers="clr-namespace:Cimbalino.Phone.Toolkit.Helpers;assembly=Cimbalino.Phone.Toolkit"
+    xmlns:local="clr-namespace:Affirmations.View"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -18,55 +19,53 @@
     shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
         <cimbalinoHelpers:NamescopeBinding x:Key="listAffirmations" Source="{Binding ElementName=listAffirmations}" />
+        <local:InverseBooleanConverter x:Key="InverseBoolean" />
     </phone:PhoneApplicationPage.Resources>
     <i:Interaction.Behaviors>
         <cimbalinoBehaviors:ApplicationBarBehavior Mode="{Binding BarMode}">
-            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" IsEnabled="True" Text="zakończ"/>
-            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" IsEnabled="True" Text="poprzednia"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" 
+                                                         IsEnabled="{Binding IsFinishAvailable}" 
+                                                         Text="zakończ"
+                                                         x:Name="buttonFinish"
+                                                         Click="buttonFinish_Click"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" 
+                                                         IsEnabled="{Binding IsPreviousAffirmationAvailable}" 
+                                                         Text="poprzednia"
+                                                         x:Name="buttonPrevious"
+                                                         Click="buttonPrevious_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" 
-                                                         IsEnabled="True" 
-                                                         Text="następna"/>
+                                                         IsEnabled="{Binding IsNextAffirmationAvailable}" 
+                                                         Text="następna"
+                                                         x:Name="buttonNext"
+                                                         Click="buttonNext_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Cancel.png" 
-                                            Text="powrót"
-                                            x:Name="buttonCancel"
-                                            Click="buttonCancel_Click"/>
+                                                        Text="powrót"
+                                                        x:Name="buttonCancel"
+                                                        IsEnabled="{Binding IsFinishAvailable, Converter={StaticResource InverseBoolean}}"
+                                                        Click="buttonCancel_Click"/>
 
         </cimbalinoBehaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <!--Pivot Control-->
-        <phone:Pivot ItemsSource="{Binding Affirmations}" SelectionChanged="Pivot_SelectionChanged">
-            <phone:Pivot.HeaderTemplate>
-                <DataTemplate>
-                    <Grid />
-                </DataTemplate>
-            </phone:Pivot.HeaderTemplate>
-            <phone:Pivot.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical"
+        <StackPanel Orientation="Vertical"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Top"
+                                VerticalAlignment="Center"
                                 Margin="12,0,12,0">
-                        <TextBlock x:Name="tbContents"
-                                   Text="{Binding Text}"
+            <TextBlock x:Name="tbContents"
+                                   Text="{Binding CurrentAffirmation.Text}"
                                    Style="{StaticResource PhoneTextExtraLargeStyle}"
                                    TextWrapping="Wrap"
                                    TextAlignment="Center"
                                    Margin="0,0,0,10"/>
-                        <TextBlock x:Name="tbProgress"
-                                   Text="1 z 10"
+            <TextBlock x:Name="tbProgress"
                                    Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextAlignment="Center"
-                                   Margin="0,0,0,20"/>
-                        <TextBlock Text="Przewiń, aby przejść do następnej afirmacji."
-                                   Style="{StaticResource PhoneTextAccentStyle}"
-                                   TextAlignment="Center" />
-                    </StackPanel>
-                </DataTemplate>
-            </phone:Pivot.ItemTemplate>
-        </phone:Pivot>
+                                   Margin="0,0,0,20"
+                                   Text="1 z 10"
+                                   Visibility="Collapsed"/>
+        </StackPanel>
     </Grid>
 
 </phone:PhoneApplicationPage>

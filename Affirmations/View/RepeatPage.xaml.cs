@@ -38,12 +38,36 @@ namespace Affirmations.View
         {
             Pivot pivot = (Pivot)sender;
 
-            if(pivot.SelectedIndex == pivot.Items.Count-1) {
+            if(pivot.SelectedIndex == pivot.Items.Count-1 || true) {
                 viewModel.BarMode = ApplicationBarMode.Default;
             }
             else
             {
                 viewModel.BarMode = ApplicationBarMode.Minimized;
+            }
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            viewModel.NextAffirmation();
+        }
+
+        private void buttonPrevious_Click(object sender, EventArgs e)
+        {
+            viewModel.PreviousAffirmation();
+        }
+
+        private void buttonFinish_Click(object sender, EventArgs e)
+        {
+            //TODO save state
+
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
             }
         }
     }
