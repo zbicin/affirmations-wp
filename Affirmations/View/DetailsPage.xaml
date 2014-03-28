@@ -40,7 +40,8 @@
         	<StackPanel Margin="8,0,8,0">
                 <TextBlock Margin="0,0,0,8" 
                            Text="{Binding Affirmation.Text}" 
-                           Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                           Tap="buttonEdit_Click"
                            TextWrapping="Wrap" 
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Top"/>

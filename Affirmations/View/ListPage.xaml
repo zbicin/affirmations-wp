@@ -82,9 +82,9 @@
                         <DataTemplate>
                             <TextBlock
                                 Text="{Binding Text, Mode=TwoWay}"
-                                Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                Style="{StaticResource PhoneTextLargeStyle}"
                                 Tap="TextBlock_Tap"
-                                Margin="0"/>
+                                Margin="0,0,0,48"/>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>

@@ -46,7 +46,16 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
-                <toolkit:PhoneTextBox x:Name="tbText" Height="72" TextWrapping="Wrap" Hint="Jesteś zwycięzcą!" Text="{Binding EditedAffirmation.Text, Mode=TwoWay, UpdateSourceTrigger=Explicit}" KeyUp="tbText_KeyUp"/>
+                <toolkit:PhoneTextBox x:Name="tbText" 
+                                      InputScope="Text"
+                                      AcceptsReturn="False"
+                                      MaxLength="160"
+                                      MaxHeight="400" 
+                                      TextWrapping="Wrap" 
+                                      Hint="Jesteś zwycięzcą!" 
+                                      Text="{Binding EditedAffirmation.Text, Mode=TwoWay, UpdateSourceTrigger=Explicit}" 
+                                      KeyUp="tbText_KeyUp"
+                                      GotFocus="tbText_GotFocus"/>
             </StackPanel>
         </Grid>
     </Grid>
