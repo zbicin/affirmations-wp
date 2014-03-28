@@ -81,5 +81,10 @@ namespace Affirmations.View
             }
         }
 
+        private void tbText_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbText.SelectAll();
+        }
+
     }
 }

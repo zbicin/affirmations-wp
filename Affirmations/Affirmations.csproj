@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="ViewModel\EditViewModel.cs" />
     <Compile Include="View\IntegerToVisibilityConverter.cs" />
+    <Compile Include="View\InverseBooleanConverter.cs" />
     <Compile Include="View\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
