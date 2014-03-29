@@ -49,12 +49,38 @@ namespace Affirmations.View
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            viewModel.NextAffirmation();
+            startAnimation(() => viewModel.NextAffirmation());
         }
 
         private void buttonPrevious_Click(object sender, EventArgs e)
         {
-            viewModel.PreviousAffirmation();
+            startAnimation(() => viewModel.PreviousAffirmation());
+        }
+
+        private void startAnimation(Action switchAffirmationMethod) {
+            EventHandler temporalFadeOutCompletedHandler = null;
+            temporalFadeOutCompletedHandler = (completedFadeOutSender, completedFadeOutEvents) =>
+            {
+                EventHandler temporalFadeInCompletedHandler = null;
+                temporalFadeInCompletedHandler = (completedFadeInSender, completedFadeInEvents) =>
+                {
+                    viewModel.UpdateSwitchesAvailability();
+                    sbFadeIn.Completed -= temporalFadeInCompletedHandler;
+                };
+
+                switchAffirmationMethod();
+
+                sbFadeIn.Completed += temporalFadeInCompletedHandler;
+                sbFadeIn.Begin();
+
+                sbFadeOut.Completed -= temporalFadeOutCompletedHandler;
+            };
+
+            sbFadeOut.Completed += temporalFadeOutCompletedHandler;
+
+            viewModel.DisableSwitches();
+
+            sbFadeOut.Begin();
         }
 
         private void buttonFinish_Click(object sender, EventArgs e)

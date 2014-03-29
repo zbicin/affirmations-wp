@@ -53,6 +53,20 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Margin="12,0,12,0">
+            <StackPanel.Resources>
+                <Storyboard x:Name="sbFadeOut">
+                    <DoubleAnimation
+                        Storyboard.TargetName="tbContents"
+                        Storyboard.TargetProperty="Opacity"
+                        From="1.0" To="0.0" Duration="0:0:0.2" />
+                </Storyboard>
+                <Storyboard x:Name="sbFadeIn">
+                    <DoubleAnimation
+                        Storyboard.TargetName="tbContents"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.0" To="1.0" Duration="0:0:0.2" />
+                </Storyboard>
+            </StackPanel.Resources>
             <TextBlock x:Name="tbContents"
                                    Text="{Binding CurrentAffirmation.Text}"
                                    Style="{StaticResource PhoneTextExtraLargeStyle}"
