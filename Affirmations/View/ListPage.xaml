@@ -77,14 +77,20 @@
                 <phone:LongListSelector x:Name="listAffirmations" 
                                         Visibility="{Binding ItemsSource.Count, RelativeSource={RelativeSource Self},Converter={StaticResource IntegerToVisibility}}"
                                         ItemsSource="{Binding Affirmations}" 
-                                        Margin="8,0">
+                                        Margin="0">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock
+                            <StackPanel Orientation="Vertical"
+                                        Tap="StackPanel_Tap"
+                                        Margin="0,0,0,8">
+                                <TextBlock
                                 Text="{Binding Text, Mode=TwoWay}"
-                                Style="{StaticResource PhoneTextLargeStyle}"
-                                Tap="TextBlock_Tap"
-                                Margin="0,0,0,48"/>
+                                Style="{StaticResource PhoneTextLargeStyle}"/>
+                                <TextBlock
+                                    Text="{Binding CreatedAt}"
+                                    Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                            </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>

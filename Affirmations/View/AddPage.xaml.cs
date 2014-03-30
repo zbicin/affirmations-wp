@@ -54,8 +54,6 @@ namespace Affirmations
 
         private void PhoneApplicationPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            tbText.SelectionStart = 0;
-            tbText.SelectionLength = tbText.Text.Length;
 			tbText.Focus();
         }
 
@@ -65,6 +63,11 @@ namespace Affirmations
             {
                 Focus(); // focus the page to hide the keypad
             }
+        }
+
+        private void tbText_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbText.SelectAll();
         }
 
     }

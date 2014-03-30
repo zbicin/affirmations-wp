@@ -27,6 +27,7 @@
                                                          x:Name="buttonSave" 
                                                          IsEnabled="{Binding Source.Text.Length, Source={StaticResource tbText}}"
                                                          Click="buttonSave_Click"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/delete.png" IsEnabled="True" Text="usuń" x:Name="buttonDelete" Click="buttonDelete_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/cancel.png" IsEnabled="True" x:Name="buttonCancel" Click="buttonCancel_Click" Text="anuluj"/>
         </cimbalinoBehaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>

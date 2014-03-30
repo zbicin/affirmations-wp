@@ -49,12 +49,14 @@
         	<StackPanel>
                 <toolkit:PhoneTextBox Text="{Binding NewAffirmation.Text, Mode=TwoWay}" 
                                       InputScope="Text"
-
-                                      x:Name="tbText" 
-                                      Height="72" 
+                                      AcceptsReturn="False"
+                                      MaxLength="160"
+                                      MaxHeight="400" 
                                       TextWrapping="Wrap" 
                                       Hint="Jesteś zwycięzcą!" 
-                                      KeyUp="tbText_KeyUp"/>
+                                      x:Name="tbText" 
+                                      KeyUp="tbText_KeyUp"
+                                      GotFocus="tbText_GotFocus"/>
         	</StackPanel>
         </Grid>
     </Grid>

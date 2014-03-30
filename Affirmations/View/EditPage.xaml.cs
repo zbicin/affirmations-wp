@@ -67,6 +67,24 @@ namespace Affirmations.View
 
         }
 
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Ta afirmacja zostanie usunięta z Twojej listy.", "Afirmacje", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            {
+                Repository.Affirmations.RemoveAt(Convert.ToInt16(affirmationIndex));
+                Repository.SaveChanges();
+
+                try
+                {
+                    NavigationService.GoBack();
+                }
+                catch (InvalidOperationException exception)
+                {
+                    NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
+                }
+            }
+        }
+
         private void PhoneApplicationPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             tbText.SelectionStart = tbText.Text.Length;
