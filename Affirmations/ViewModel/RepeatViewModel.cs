@@ -124,7 +124,7 @@ namespace Affirmations.ViewModel
             UpdateSwitchesAvailability();
         }
 
-        private void UpdateSwitchesAvailability()
+        public void UpdateSwitchesAvailability()
         {
             IsNextAffirmationAvailable = !(CurrentAffirmationIndex == Affirmations.Count - 1);
             IsPreviousAffirmationAvailable = CurrentAffirmationIndex > 0;
@@ -134,6 +134,11 @@ namespace Affirmations.ViewModel
             {
                 IsFinishAvailable = true;
             }
+        }
+
+        public void DisableSwitches()
+        {
+            IsNextAffirmationAvailable = IsPreviousAffirmationAvailable = false;
         }
     }
 }
