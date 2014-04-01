@@ -32,6 +32,14 @@
                                             Text="powtórz"
                                             Click="buttonRepeat_Click"
                                             IsEnabled="{Binding Source.ItemsSource.Count, Source={StaticResource listAffirmations}}"/>
+            <cimbalinoBehaviors:ApplicationBarBehavior.MenuItems>
+                <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonSettings"
+                                                           Text="ustawienia"
+                                                           Click="buttonSettings_Click" />
+                <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonAbout"
+                                                           Text="o programie"
+                                                           Click="buttonAbout_Click" />
+            </cimbalinoBehaviors:ApplicationBarBehavior.MenuItems>
         </cimbalinoBehaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>
 

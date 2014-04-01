@@ -54,6 +54,16 @@ namespace Affirmations.View
             {
                 MessageBox.Show("Nie dodałeś jeszcze rzadnej afirmacji.");
             }
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/View/SettingsPage.xaml", UriKind.Relative));
+        }
+
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Afirmacje\n\u0169 2014 Krzysztof Zbiciński");
         }       
 
 
