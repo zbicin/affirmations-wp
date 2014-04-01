@@ -25,6 +25,7 @@ namespace Affirmations.View
             Repository.Init();
             DataContext = new ListViewModel();
 
+
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -64,6 +65,16 @@ namespace Affirmations.View
         private void buttonAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Afirmacje\n\u0169 2014 Krzysztof Zbiciński");
+        }
+
+        private void htRepeat_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            buttonRepeat_Click(sender, e);
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            VisualStateManager.GoToState(htRepeat, "Flipped", false);
         }       
 
 
