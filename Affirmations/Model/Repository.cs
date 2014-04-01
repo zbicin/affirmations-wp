@@ -14,6 +14,7 @@ namespace Affirmations.Model
     public static class Repository
     {
         public static string IS_REMINDER_ENABLED_KEY = "isReminderEnabled";
+        public static string LAST_REPETITION_DATE_KEY = "lastRepetitionDate";
         public static string REMINDER_DATETIME_KEY = "reminderDateTime";
         private static string AFFIRMATIONS_KEY = "affirmations";
         private static bool IsInitiated = false;

@@ -75,7 +75,14 @@ namespace Affirmations.View
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
             VisualStateManager.GoToState(htRepeat, "Flipped", false);
-        }       
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            //TODO remove it and find better way to perform the same task
+            DataContext = new ListViewModel();
+        }
 
 
         // Sample code for building a localized ApplicationBar

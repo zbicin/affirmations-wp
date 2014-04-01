@@ -64,16 +64,22 @@
                                      Tap="htRepeat_Tap"
                                      Margin="0,0,0,12"
                                     Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}}" />
-                    <TextBlock Text="Ostatnio powtarzałeś swoje afirmacje wczoraj."
-                               Style="{StaticResource PhoneTextSubtleStyle}"
+                    <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                TextWrapping="Wrap"
                                Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}}"
-                               Margin="0,0,0,0"/>
-                    <TextBlock Text="Jeśli zapomnisz o dzisiejszej powtórce, przypomnę Ci o niej o godz. 18:00."
-                               Style="{StaticResource PhoneTextSubtleStyle}"
+                               Margin="0,0,0,0">
+                        <Run Text="Ostatnio powtarzałeś swoje afirmacje "/>
+                        <Run Text="{Binding LastRepetitionDate}"  Foreground="{StaticResource PhoneForegroundBrush}"/>
+                        <Run Text="."/>
+                    </TextBlock>
+                    <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                TextWrapping="Wrap"
                                Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}}"
-                               Margin="0,0,0,0" />
+                               Margin="0,0,0,0">
+                        <Run Text="Jeśli zapomnisz o dzisiejszej powtórce, przypomnę Ci o niej o godz. " />
+                        <Run Text="{Binding ReminderDateTime}" Foreground="{StaticResource PhoneForegroundBrush}" />
+                        <Run Text="."/>
+                    </TextBlock>
                     <TextBlock Text="Tu będzie jakieś ładne wyjaśnienie idei aplikacji"
                                TextWrapping="Wrap"
                                Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}"

@@ -44,7 +44,7 @@
             <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                        Text="Godzina przypomnienia"
                        Visibility="{Binding IsChecked, ElementName=tsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"/>
-            <toolkit:TimePicker Value="{Binding ReminderDateTime}" 
+            <toolkit:TimePicker Value="{Binding ReminderDateTime, Mode=TwoWay}" 
                                 Visibility="{Binding IsChecked, ElementName=tsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"/>
             <Button x:Name="buttonDebugTime"
                     Click="buttonDebugTime_Click"
