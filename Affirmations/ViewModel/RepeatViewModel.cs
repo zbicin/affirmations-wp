@@ -95,7 +95,7 @@ namespace Affirmations.ViewModel
         {
             CurrentAffirmationIndex = 0;
             BarMode = ApplicationBarMode.Default;
-            Affirmations = Repository.Affirmations;
+            Affirmations = App.ViewModel.Affirmations;
             CurrentAffirmation = Affirmations[CurrentAffirmationIndex];
             IsFinishAvailable = Affirmations.Count == 1;
             

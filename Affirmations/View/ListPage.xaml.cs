@@ -23,7 +23,7 @@ namespace Affirmations.View
             InitializeComponent();
 
             Repository.Init();
-            DataContext = new ListViewModel();
+            DataContext = App.ViewModel;
 
 
             // Sample code to localize the ApplicationBar
@@ -34,8 +34,7 @@ namespace Affirmations.View
         {
             StackPanel spSender = (StackPanel)sender;
             Affirmation affirmation = (Affirmation)spSender.DataContext;
-            ObservableCollection<Affirmation> allAffirmations = ((ListViewModel)DataContext).Affirmations;
-            int affirmationIndex = allAffirmations.IndexOf(affirmation);
+            int affirmationIndex = App.ViewModel.Affirmations.IndexOf(affirmation);
          
             NavigationService.Navigate(new Uri("/View/EditPage.xaml?affirmationIndex=" + affirmationIndex, UriKind.Relative));
         }
@@ -47,7 +46,7 @@ namespace Affirmations.View
 
         private void buttonRepeat_Click(object sender, EventArgs e)
         {
-            if (((ListViewModel)DataContext).Affirmations.Count > 0)
+            if (App.ViewModel.Affirmations.Count > 0)
             {
                 NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
             }
@@ -75,13 +74,6 @@ namespace Affirmations.View
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
             VisualStateManager.GoToState(htRepeat, "Flipped", false);
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            //TODO remove it and find better way to perform the same task
-            DataContext = new ListViewModel();
         }
 
 

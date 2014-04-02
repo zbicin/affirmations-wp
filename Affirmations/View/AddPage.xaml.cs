@@ -14,13 +14,16 @@ namespace Affirmations
 {
     public partial class AddPage : PhoneApplicationPage
     {
-        private AddViewModel viewModel;
 
         public AddPage()
         {
             InitializeComponent();
-            viewModel = new AddViewModel();
-            DataContext = viewModel;
+            App.ViewModel.NewAffirmation = new Affirmation
+            {
+                Text = "Jesteś zwycięzcą!",
+                CreatedAt = DateTime.Now
+            };
+            DataContext = App.ViewModel;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -32,10 +35,9 @@ namespace Affirmations
         {
             tbText.GetBindingExpression(PhoneTextBox.TextProperty).UpdateSource();
 
-            if (viewModel.NewAffirmation.Text.Length > 0)
+            if (App.ViewModel.NewAffirmation.Text.Length > 0)
             {
-                Repository.Affirmations.Add(viewModel.NewAffirmation);
-                Repository.SaveChanges();
+                App.ViewModel.Affirmations.Add(App.ViewModel.NewAffirmation);
 
                 try
                 {

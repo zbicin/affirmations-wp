@@ -95,21 +95,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Affirmation.cs" />
-    <Compile Include="ViewModel\AddViewModel.cs" />
-    <Compile Include="ViewModel\DetailsViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RepeatViewModel.cs" />
     <Compile Include="View\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BooleanToVisibilityConverter.cs" />
-    <Compile Include="View\DetailsPage.xaml.cs">
-      <DependentUpon>DetailsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="View\EditPage.xaml.cs">
       <DependentUpon>EditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\EditViewModel.cs" />
     <Compile Include="View\IntegerToBarModeConverter.cs" />
     <Compile Include="View\IntegerToVisibilityConverter.cs" />
     <Compile Include="View\InverseBooleanConverter.cs" />
@@ -124,7 +119,6 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BindableBase.cs" />
-    <Compile Include="ViewModel\ListViewModel.cs" />
     <Compile Include="View\PlaygroundPage.xaml.cs">
       <DependentUpon>PlaygroundPage.xaml</DependentUpon>
     </Compile>
@@ -134,7 +128,6 @@
     <Compile Include="View\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\SettingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -142,10 +135,6 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="View\AddPage.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\DetailsPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>

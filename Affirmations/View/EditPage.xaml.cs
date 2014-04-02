@@ -15,7 +15,6 @@ namespace Affirmations.View
     public partial class EditPage : PhoneApplicationPage
     {
         private string affirmationIndex;
-        private EditViewModel viewModel;
 
         public EditPage()
         {
@@ -30,8 +29,8 @@ namespace Affirmations.View
 
             if (NavigationContext.QueryString.TryGetValue("affirmationIndex", out affirmationIndex))
             {
-                viewModel = new EditViewModel(affirmationIndex);
-                DataContext = viewModel;
+                App.ViewModel.EditedAffirmation = App.ViewModel.Affirmations.ElementAt<Affirmation>(Convert.ToInt16(affirmationIndex)).Clone(); 
+                DataContext = App.ViewModel;
             }
 			
 			tbText.Focus();
@@ -46,10 +45,9 @@ namespace Affirmations.View
         {
             tbText.GetBindingExpression(PhoneTextBox.TextProperty).UpdateSource();
 
-            if (viewModel.EditedAffirmation.Text.Length > 0)
+            if (App.ViewModel.EditedAffirmation.Text.Length > 0)
             {
-                Repository.Affirmations[Convert.ToInt16(affirmationIndex)] = viewModel.EditedAffirmation;
-                Repository.SaveChanges();
+                App.ViewModel.Affirmations[Convert.ToInt16(affirmationIndex)] = App.ViewModel.EditedAffirmation.Clone();
 
                 try
                 {
@@ -71,8 +69,7 @@ namespace Affirmations.View
         {
             if (MessageBox.Show("Ta afirmacja zostanie usunięta z Twojej listy.", "Afirmacje", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
-                Repository.Affirmations.RemoveAt(Convert.ToInt16(affirmationIndex));
-                Repository.SaveChanges();
+                App.ViewModel.Affirmations.RemoveAt(Convert.ToInt16(affirmationIndex));
 
                 try
                 {
