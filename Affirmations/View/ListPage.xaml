@@ -73,9 +73,11 @@
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"
+                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
                                    Text="Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz. "/>
                         <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
                                    TextWrapping="Wrap"
+                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
                                    Text="{Binding ReminderDateTime, StringFormat='{}{0:t}.'}"/>
                     </StackPanel>
                     <StackPanel Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}">

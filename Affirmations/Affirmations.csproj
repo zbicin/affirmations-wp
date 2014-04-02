@@ -94,6 +94,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Affirmation.cs" />
+    <Compile Include="Model\StorageHelper.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RepeatViewModel.cs" />
     <Compile Include="ViewModel\ScheduledRemindersHelper.cs" />

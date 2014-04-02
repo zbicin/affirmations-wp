@@ -16,9 +16,8 @@ namespace Affirmations.ViewModel
         private string IS_REMINDER_ENABLED_KEY = "isReminderEnabled";
         private string LAST_REPETITION_DATE_KEY = "lastRepetitionDate";
         private string REMINDER_DATETIME_KEY = "reminderDateTime";
-        private string AFFIRMATIONS_KEY = "affirmations";
 
-        private IsolatedStorageSettings Settings;
+        private StorageHelper Storage;
         public ScheduledRemindersHelper ReminderHelper;
 
         public ObservableCollection<Affirmation> Affirmations { get; set; }
@@ -90,61 +89,56 @@ namespace Affirmations.ViewModel
 
         public MainViewModel()
         {
-            Settings = IsolatedStorageSettings.ApplicationSettings;
-            Affirmations = new ObservableCollection<Affirmation>();
+            Storage = new StorageHelper();
             ReminderHelper = new ScheduledRemindersHelper();
+
+            Affirmations = new ObservableCollection<Affirmation>(Storage.Affirmations);
             LoadSettings();
         }
 
         public void SaveSettings()
         {
-            SaveSingleSetting<DateTime>(LAST_REPETITION_DATE_KEY, LastRepetitionDate);
-            SaveSingleSetting<DateTime>(REMINDER_DATETIME_KEY, ReminderDateTime);
-            SaveSingleSetting<bool>(IS_REMINDER_ENABLED_KEY, IsReminderEnabled);
+            Storage.SetSetting(LAST_REPETITION_DATE_KEY, LastRepetitionDate);
+            Storage.SetSetting(REMINDER_DATETIME_KEY, ReminderDateTime);
+            Storage.SetSetting(IS_REMINDER_ENABLED_KEY, IsReminderEnabled);
 
-            //affirmations
-            XmlSerializer xmlSerializer = new XmlSerializer(Affirmations.GetType());
-            StringWriter stringWriter = new StringWriter();
-
-            xmlSerializer.Serialize(stringWriter, Affirmations);
-            SaveSingleSetting<string>(AFFIRMATIONS_KEY, stringWriter.ToString());
+            Storage.SaveSettings();
         }
 
-        private void SaveSingleSetting<T>(string key, T value)
+        /*private void SaveSingleSetting<T>(string key, T value)
         {
-            if (Settings.Contains(key))
+            if (Settings.ContainsSetting(key))
             {
-                Settings[key] = value;
+                Settings.SetSetting(key, value);
             }
             else
             {
                 Settings.Add(key, value);
             }
-        }
+        }*/
 
         public void LoadSettings()
         {
-            IsReminderEnabled = GetSingleSettingOrDefault<bool>(IS_REMINDER_ENABLED_KEY, false);
-            ReminderDateTime = GetSingleSettingOrDefault<DateTime>(REMINDER_DATETIME_KEY, new DateTime(1900, 1, 1, 18, 0, 0));
-            LastRepetitionDate = GetSingleSettingOrDefault<DateTime>(LAST_REPETITION_DATE_KEY, new DateTime(0));
-
-            //affirmations
-            string serializedAffirmations = GetSingleSettingOrDefault<string>(AFFIRMATIONS_KEY, String.Empty);
-            StringReader stringReader = new StringReader(serializedAffirmations);
-            XmlSerializer xmlSerializer = new XmlSerializer(Affirmations.GetType());
-
-            Affirmations = serializedAffirmations.Equals(String.Empty) ? new ObservableCollection<Affirmation>() : (ObservableCollection<Affirmation>)xmlSerializer.Deserialize(stringReader);
+            IsReminderEnabled = Storage.TryGetSetting<bool>(IS_REMINDER_ENABLED_KEY, false);
+            ReminderDateTime = Storage.TryGetSetting<DateTime>(REMINDER_DATETIME_KEY, new DateTime(1900, 1, 1, 18, 0, 0));
+            LastRepetitionDate = Storage.TryGetSetting<DateTime>(LAST_REPETITION_DATE_KEY, new DateTime(0));
         }
 
-        private T GetSingleSettingOrDefault<T>(string key, T defaultValue)
+        /*private T GetSingleSettingOrDefault<T>(string key, T defaultValue)
         {
-            if (Settings.Contains(key))
+            if (Settings.ContainsSetting(key))
             {
-                return (T)Settings[key];
+                return Settings.Get<T>(key);
             }
             return defaultValue;
+        }*/
+
+
+
+        public void SaveAffirmations()
+        {
+            Storage.Affirmations = Affirmations.ToList();
+            Storage.SaveAffirmations();
         }
-
-
     }
 }
