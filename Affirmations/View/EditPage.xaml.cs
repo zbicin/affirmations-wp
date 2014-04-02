@@ -48,6 +48,7 @@ namespace Affirmations.View
             if (App.ViewModel.EditedAffirmation.Text.Length > 0)
             {
                 App.ViewModel.Affirmations[Convert.ToInt16(affirmationIndex)] = App.ViewModel.EditedAffirmation.Clone();
+                App.ViewModel.SaveSettings();
 
                 try
                 {

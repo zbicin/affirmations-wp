@@ -38,6 +38,7 @@ namespace Affirmations
             if (App.ViewModel.NewAffirmation.Text.Length > 0)
             {
                 App.ViewModel.Affirmations.Add(App.ViewModel.NewAffirmation);
+                App.ViewModel.SaveSettings();
 
                 try
                 {

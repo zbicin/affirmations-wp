@@ -13,19 +13,31 @@ namespace Affirmations.View
 {
     public partial class SettingsPage : PhoneApplicationPage
     {
-        private SettingsViewModel viewModel;
         
         public SettingsPage()
         {
             InitializeComponent();
 
-            viewModel = new SettingsViewModel();
             DataContext = App.ViewModel;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            viewModel.Settings.Save();
+            App.ViewModel.SaveSettings();
+
+            if (e.Content == null
+                || e.Content.GetType() != typeof(TimePickerPage))
+            {
+                if (App.ViewModel.IsReminderEnabled)
+                {
+                    App.ViewModel.ReminderHelper.TryScheduleReminder(App.ViewModel.LastRepetitionDate);
+                }
+                else
+                {
+                    App.ViewModel.ReminderHelper.TryUnscheduleReminder();
+                }
+            }
+
 
             base.OnNavigatedFrom(e);
         }

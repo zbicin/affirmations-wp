@@ -34,19 +34,6 @@ namespace Affirmations.View
             }
         }
 
-        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Pivot pivot = (Pivot)sender;
-
-            if(pivot.SelectedIndex == pivot.Items.Count-1 || true) {
-                viewModel.BarMode = ApplicationBarMode.Default;
-            }
-            else
-            {
-                viewModel.BarMode = ApplicationBarMode.Minimized;
-            }
-        }
-
         private void buttonNext_Click(object sender, EventArgs e)
         {
             startAnimation(() => viewModel.NextAffirmation());
@@ -85,7 +72,8 @@ namespace Affirmations.View
 
         private void buttonFinish_Click(object sender, EventArgs e)
         {
-            //TODO save state
+            App.ViewModel.LastRepetitionDate = DateTime.Now;
+            App.ViewModel.SaveSettings();
 
             if (NavigationService.CanGoBack)
             {

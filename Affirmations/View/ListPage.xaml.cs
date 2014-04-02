@@ -22,7 +22,6 @@ namespace Affirmations.View
         {
             InitializeComponent();
 
-            Repository.Init();
             DataContext = App.ViewModel;
 
 

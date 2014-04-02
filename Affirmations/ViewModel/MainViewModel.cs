@@ -19,7 +19,7 @@ namespace Affirmations.ViewModel
         private string AFFIRMATIONS_KEY = "affirmations";
 
         private IsolatedStorageSettings Settings;
-        //private ScheduledRemindersHelper ReminderHelper;
+        public ScheduledRemindersHelper ReminderHelper;
 
         public ObservableCollection<Affirmation> Affirmations { get; set; }
 
@@ -46,14 +46,6 @@ namespace Affirmations.ViewModel
             set
             {
                 this.SetProperty<bool>(ref _isReminderEnabled, value);
-                if (value)
-                {
-                   // RemindersHelper.ScheduleReminder(LastRepetitionDate);
-                }
-                else
-                {
-                    //ReminderHelper.UnscheduleReminder();
-                }
             }
         }
 
@@ -100,6 +92,7 @@ namespace Affirmations.ViewModel
         {
             Settings = IsolatedStorageSettings.ApplicationSettings;
             Affirmations = new ObservableCollection<Affirmation>();
+            ReminderHelper = new ScheduledRemindersHelper();
             LoadSettings();
         }
 

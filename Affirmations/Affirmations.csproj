@@ -97,21 +97,21 @@
     <Compile Include="Model\Affirmation.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RepeatViewModel.cs" />
+    <Compile Include="ViewModel\ScheduledRemindersHelper.cs" />
     <Compile Include="View\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BooleanToVisibilityConverter.cs" />
+    <Compile Include="View\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="View\EditPage.xaml.cs">
       <DependentUpon>EditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\IntegerToBarModeConverter.cs" />
-    <Compile Include="View\IntegerToVisibilityConverter.cs" />
-    <Compile Include="View\InverseBooleanConverter.cs" />
+    <Compile Include="View\Converters\IntegerToBarModeConverter.cs" />
+    <Compile Include="View\Converters\IntegerToVisibilityConverter.cs" />
+    <Compile Include="View\Converters\InverseBooleanConverter.cs" />
     <Compile Include="View\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
