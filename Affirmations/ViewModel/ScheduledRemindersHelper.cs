@@ -37,7 +37,7 @@ namespace Affirmations.ViewModel
 
             scheduledReminder.BeginTime = BeginTime;
             scheduledReminder.Content = "Nie powtarzałeś jeszcze dzisiaj afirmacji.";
-            scheduledReminder.RecurrenceType = RecurrenceInterval.None;
+            scheduledReminder.RecurrenceType = RecurrenceInterval.Daily;
 
             ScheduledActionService.Add(scheduledReminder);
         }

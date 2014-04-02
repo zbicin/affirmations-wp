@@ -18,7 +18,7 @@ namespace Affirmations.View
         {
             InitializeComponent();
 
-            DataContext = App.ViewModel;
+            DataContext = App.ViewModel;            
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
