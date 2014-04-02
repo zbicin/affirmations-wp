@@ -76,7 +76,7 @@
                                    Text="Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz. "/>
                         <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
                                    TextWrapping="Wrap"
-                                   Text="{Binding ReminderDateTime.TimeOfDay, StringFormat='{}{0}.'}"/>
+                                   Text="{Binding ReminderDateTime, StringFormat='{}{0:t}.'}"/>
                     </StackPanel>
                     <StackPanel Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}">
                         <TextBlock Text="Tu będzie jakieś ładne wyjaśnienie idei aplikacji"
@@ -108,7 +108,7 @@
                                 Text="{Binding Text, Mode=TwoWay}"
                                 Style="{StaticResource PhoneTextLargeStyle}"/>
                                         <TextBlock
-                                    Text="{Binding CreatedAt}"
+                                    Text="{Binding CreatedAt, Converter={StaticResource RelativeTime}, StringFormat='Utworzono: {0}.'}"
                                     Style="{StaticResource PhoneTextSubtleStyle}"/>
 
                                     </StackPanel>
