@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affirmations", "Affirmations\Affirmations.csproj", "{c9c533a5-b303-4478-a60d-9d716d375f7c}"
+# Visual Studio Express 2012 for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affirmations", "Affirmations\Affirmations.csproj", "{C9C533A5-B303-4478-A60D-9D716D375F7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,5 +15,8 @@ Global
 		{C9C533A5-B303-4478-A60D-9D716D375F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9C533A5-B303-4478-A60D-9D716D375F7C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9C533A5-B303-4478-A60D-9D716D375F7C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

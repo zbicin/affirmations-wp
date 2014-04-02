@@ -133,7 +133,7 @@ namespace Affirmations.ViewModel
             StringReader stringReader = new StringReader(serializedAffirmations);
             XmlSerializer xmlSerializer = new XmlSerializer(Affirmations.GetType());
 
-            Affirmations = (ObservableCollection<Affirmation>)xmlSerializer.Deserialize(stringReader);
+            Affirmations = serializedAffirmations.Equals(String.Empty) ? new ObservableCollection<Affirmation>() : (ObservableCollection<Affirmation>)xmlSerializer.Deserialize(stringReader);
         }
 
         private T GetSingleSettingOrDefault<T>(string key, T defaultValue)
