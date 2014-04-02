@@ -22,6 +22,7 @@
         <local:IntegerToVisibilityConverter x:Key="IntegerToVisibility" />
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
         <local:IntegerToBarModeConverter x:Key="IntegerToBarMode" />
+        <toolkit:RelativeTimeConverter x:Key="RelativeTime" />
         <cimbalinoHelpers:NamescopeBinding x:Key="listAffirmations" Source="{Binding ElementName=listAffirmations}" />
         <cimbalinoHelpers:NamescopeBinding x:Key="pvPages" Source="{Binding ElementName=pvPages}" />
     </phone:PhoneApplicationPage.Resources>
@@ -62,21 +63,20 @@
                                          Title="powtórz swoje afirmacje"
                                          Size="Large"
                                          IsFrozen="True"
-                                         Tap="htRepeat_Tap"
-                                         Margin="0,0,0,12"/>
-                        <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
-                                   TextWrapping="Wrap">
-                            <Run Text="Ostatnio powtarzałeś swoje afirmacje "/>
-                            <Run Text="{Binding LastRepetitionDate}"  Foreground="{StaticResource PhoneForegroundBrush}"/>
-                            <Run Text="."/>
-                        </TextBlock>
+                                         Tap="htRepeat_Tap"/>
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
-                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}">
-                            <Run Text="Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz. " />
-                            <Run Text="{Binding ReminderDateTime.TimeOfDay}" Foreground="{StaticResource PhoneForegroundBrush}" />
-                            <Run Text="."/>
-                        </TextBlock>
+                                   Margin="12,12,12,0"
+                                   Text="Ostatnio powtarzałeś swoje afirmacje"/>
+                        <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
+                                   Text="{Binding LastRepetitionDate, Converter={StaticResource RelativeTime}, StringFormat='{}{0}.'}"/>
+                        <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
+                                   TextWrapping="Wrap"
+                                   Margin="12,12,12,0"
+                                   Text="Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz. "/>
+                        <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
+                                   TextWrapping="Wrap"
+                                   Text="{Binding ReminderDateTime.TimeOfDay, StringFormat='{}{0}.'}"/>
                     </StackPanel>
                     <StackPanel Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}">
                         <TextBlock Text="Tu będzie jakieś ładne wyjaśnienie idei aplikacji"
