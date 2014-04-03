@@ -48,6 +48,7 @@ namespace Affirmations.View
             if (MessageBox.Show("Wiesz co robisz?", "Chwilkę Panie Kierowniku", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 App.ViewModel.ResetAll();
+                App.ViewModel = new MainViewModel();
                 MessageBox.Show("Zrobione.");
             }
         }

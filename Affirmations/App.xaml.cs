@@ -29,6 +29,10 @@ namespace Affirmations
 
                 return viewModel;
             }
+            set
+            {
+                viewModel = value;
+            }
         }
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
