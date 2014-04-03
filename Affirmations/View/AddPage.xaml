@@ -56,7 +56,6 @@
                                       MaxLength="160"
                                       MaxHeight="400" 
                                       TextWrapping="Wrap" 
-                                      Hint="Jesteś zwycięzcą!" 
                                       x:Name="tbText" 
                                       KeyUp="tbText_KeyUp"
                                       GotFocus="tbText_GotFocus"/>

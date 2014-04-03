@@ -124,5 +124,26 @@ namespace Affirmations.Model
                 Affirmations = new List<Affirmation>();
             }
         }
+
+        public void ResetAll()
+        {
+
+            IsolatedStorageFile local =
+                IsolatedStorageFile.GetUserStoreForApplication();
+
+            if (local.DirectoryExists(STORAGE_FOLDERNAME))
+            {
+                if (local.FileExists(STORAGE_FOLDERNAME + "\\" + SETTINGS_FILENAME))
+                {
+                    local.DeleteFile(STORAGE_FOLDERNAME + "\\" + SETTINGS_FILENAME);
+                }
+                if (local.FileExists(STORAGE_FOLDERNAME + "\\" + AFFIRMATIONS_FILENAME))
+                {
+                    local.DeleteFile(STORAGE_FOLDERNAME + "\\" + AFFIRMATIONS_FILENAME);
+                }
+
+                local.DeleteDirectory(STORAGE_FOLDERNAME);
+            }
+        }
     }
 }

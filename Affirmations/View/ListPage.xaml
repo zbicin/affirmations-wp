@@ -17,7 +17,6 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
-    Loaded="PhoneApplicationPage_Loaded"
     Style="{StaticResource AnimatedPage}"
     toolkit:TiltEffect.IsTiltEnabled="True">
     <phone:PhoneApplicationPage.Resources>
@@ -60,7 +59,6 @@
                 <Grid>
                     <StackPanel Orientation="Vertical"
                                 Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}}">
-
                         <Grid Height="210"
                               HorizontalAlignment="Stretch"
                               Margin="12,0,12,12"
@@ -76,13 +74,23 @@
                                        Margin="12"
                                        />
                         </Grid>
-                        
+
+                        <!-- repetition encouragement before first time -->
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"
+                                   Visibility="{Binding IsFirstRepetitionDone, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
+                                   Text="Naciśnij powyższy kafelek, aby powtórzyć swoje afirmacje po raz pierwszy."/>
+                        <!-- last repetition date -->
+                        <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
+                                   TextWrapping="Wrap"
+                                   Margin="12,12,12,0"
+                                   Visibility="{Binding IsFirstRepetitionDone, Converter={StaticResource BooleanToVisibility}}"
                                    Text="Ostatnio powtarzałeś swoje afirmacje"/>
                         <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
+                                   Visibility="{Binding IsFirstRepetitionDone, Converter={StaticResource BooleanToVisibility}}"
                                    Text="{Binding LastRepetitionDate, Converter={StaticResource RelativeTime}, StringFormat='{}{0}.'}"/>
+                        <!-- reminder... reminder :) -->
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"
@@ -92,8 +100,23 @@
                                    TextWrapping="Wrap"
                                    Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
                                    Text="{Binding ReminderDateTime, StringFormat='{}{0:t}.'}"/>
+                        <!-- reminder info/encouragement -->
+                        <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
+                                   TextWrapping="Wrap"
+                                   Margin="12,12,12,0"
+                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
+                                   Text="Przypomnienia o codziennej powtórce są "/>
+                        <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
+                                   TextWrapping="Wrap"
+                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
+                                   Text="wyłączone."/>
+
+
                     </StackPanel>
                     <StackPanel Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}">
+                        <Image Source="/Assets/ApplicationIcon.png"
+                               HorizontalAlignment="Center"
+                               Stretch="None" />
                         <TextBlock Text="Tu będzie jakieś ładne wyjaśnienie idei aplikacji"
                                    TextWrapping="Wrap"
                                    Style="{StaticResource PhoneTextNormalStyle}"

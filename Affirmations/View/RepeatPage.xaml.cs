@@ -72,8 +72,7 @@ namespace Affirmations.View
 
         private void buttonFinish_Click(object sender, EventArgs e)
         {
-            App.ViewModel.LastRepetitionDate = DateTime.Now;
-            App.ViewModel.SaveSettings();
+            FinishRepetition();
 
             if (NavigationService.CanGoBack)
             {
@@ -85,13 +84,19 @@ namespace Affirmations.View
             }
         }
 
+        private void FinishRepetition()
+        {
+            App.ViewModel.LastRepetitionDate = DateTime.Now;
+            App.ViewModel.SaveSettings();
+
+        }
+
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
             if (viewModel.IsFinishAvailable)
             {
                 //user has seen all of the affirmations, we can update his LastRepetitionDate
-                App.ViewModel.LastRepetitionDate = DateTime.Now;
-                App.ViewModel.SaveSettings();
+                FinishRepetition();
             }
 
             base.OnBackKeyPress(e);

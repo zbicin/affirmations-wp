@@ -45,8 +45,11 @@ namespace Affirmations.View
 
         private void buttonDebugTime_Click(object sender, RoutedEventArgs e)
         {
-            int a = 5;
-            a = 5 + 2;
+            if (MessageBox.Show("Wiesz co robisz?", "Chwilkę Panie Kierowniku", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            {
+                App.ViewModel.ResetAll();
+                MessageBox.Show("Zrobione.");
+            }
         }
     }
 }

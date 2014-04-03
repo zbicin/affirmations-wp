@@ -35,6 +35,14 @@ namespace Affirmations.ViewModel
             }
         }
 
+        public bool IsFirstRepetitionDone
+        {
+            get
+            {
+                return LastRepetitionDate.CompareTo(new DateTime(0)) != 0;
+            }
+        }
+
         private bool _isReminderEnabled;
         public bool IsReminderEnabled
         {
@@ -84,6 +92,7 @@ namespace Affirmations.ViewModel
             set
             {
                 SetProperty<DateTime>(ref _lastRepetitionDate, value);
+                OnPropertyChanged("IsFirstRepetitionDone");
             }
         }
 
@@ -139,6 +148,11 @@ namespace Affirmations.ViewModel
         {
             Storage.Affirmations = Affirmations.ToList();
             Storage.SaveAffirmations();
+        }
+
+        public void ResetAll()
+        {
+            Storage.ResetAll();
         }
     }
 }

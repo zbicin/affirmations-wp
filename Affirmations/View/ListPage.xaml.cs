@@ -70,11 +70,6 @@ namespace Affirmations.View
             buttonRepeat_Click(sender, e);
         }
 
-        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            VisualStateManager.GoToState(htRepeat, "Collapsed", false);
-        }
-
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
