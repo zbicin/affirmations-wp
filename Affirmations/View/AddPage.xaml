@@ -17,7 +17,8 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
     Loaded="PhoneApplicationPage_Loaded"
-    Style="{StaticResource AnimatedPage}">
+    Style="{StaticResource AnimatedPage}"
+    toolkit:TiltEffect.IsTiltEnabled="True">
     <phone:PhoneApplicationPage.Resources>
         <cimbalinoHelpers:NamescopeBinding x:Key="tbText" Source="{Binding ElementName=tbText}" />
     </phone:PhoneApplicationPage.Resources>
