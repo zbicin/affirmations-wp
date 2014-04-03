@@ -17,7 +17,8 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
-    Loaded="PhoneApplicationPage_Loaded">
+    Loaded="PhoneApplicationPage_Loaded"
+    Style="{StaticResource AnimatedPage}">
     <phone:PhoneApplicationPage.Resources>
         <local:IntegerToVisibilityConverter x:Key="IntegerToVisibility" />
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
@@ -58,12 +59,14 @@
                 <Grid>
                     <StackPanel Orientation="Vertical"
                                 Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}}">
+
                         <toolkit:HubTile x:Name="htRepeat" 
-                                         HorizontalAlignment="Center"
-                                         Title="powtórz swoje afirmacje"
-                                         Size="Large"
-                                         IsFrozen="True"
-                                         Tap="htRepeat_Tap" />
+                                             HorizontalAlignment="Center"
+                                             Title="powtórz teraz"
+                                             Size="Large"
+                                             Tap="htRepeat_Tap" 
+                                             IsFrozen="True"
+                                             Source="/Assets/Tiles/FlipCycleTileLarge.png"/>
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"

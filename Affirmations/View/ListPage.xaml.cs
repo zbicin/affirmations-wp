@@ -72,7 +72,7 @@ namespace Affirmations.View
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            VisualStateManager.GoToState(htRepeat, "Flipped", false);
+            VisualStateManager.GoToState(htRepeat, "Collapsed", false);
         }
 
 

@@ -40,6 +40,12 @@ namespace Affirmations
                 App.ViewModel.Affirmations.Add(App.ViewModel.NewAffirmation);
                 App.ViewModel.SaveAffirmations();
 
+                if (App.ViewModel.IsReminderEnabled)
+                {
+                    // users wants reminders; make sure there will be one
+                    App.ViewModel.ReminderHelper.TryScheduleReminder(App.ViewModel.LastRepetitionDate);
+                }
+
                 try
                 {
                     NavigationService.GoBack();

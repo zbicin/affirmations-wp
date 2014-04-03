@@ -84,5 +84,17 @@ namespace Affirmations.View
                 NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
             }
         }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            if (viewModel.IsFinishAvailable)
+            {
+                //user has seen all of the affirmations, we can update his LastRepetitionDate
+                App.ViewModel.LastRepetitionDate = DateTime.Now;
+                App.ViewModel.SaveSettings();
+            }
+
+            base.OnBackKeyPress(e);
+        }
     }
 }

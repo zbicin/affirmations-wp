@@ -15,7 +15,9 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+    shell:SystemTray.IsVisible="True"
+    Loaded="PhoneApplicationPage_Loaded"
+    Style="{StaticResource AnimatedPage}">
     <phone:PhoneApplicationPage.Resources>
         <cimbalinoHelpers:NamescopeBinding x:Key="tbText" Source="{Binding ElementName=tbText}" />
     </phone:PhoneApplicationPage.Resources>

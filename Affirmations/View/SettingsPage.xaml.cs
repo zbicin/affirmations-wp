@@ -28,7 +28,8 @@ namespace Affirmations.View
             if (e.Content == null
                 || e.Content.GetType() != typeof(TimePickerPage))
             {
-                if (App.ViewModel.IsReminderEnabled)
+                if (App.ViewModel.IsReminderEnabled
+                    && App.ViewModel.Affirmations.Count > 0)
                 {
                     App.ViewModel.ReminderHelper.TryScheduleReminder(App.ViewModel.LastRepetitionDate);
                 }

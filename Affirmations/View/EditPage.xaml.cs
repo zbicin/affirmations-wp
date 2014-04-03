@@ -71,6 +71,13 @@ namespace Affirmations.View
             if (MessageBox.Show("Ta afirmacja zostanie usunięta z Twojej listy.", "Afirmacje", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 App.ViewModel.Affirmations.RemoveAt(Convert.ToInt16(affirmationIndex));
+                App.ViewModel.SaveAffirmations();
+
+                if (App.ViewModel.Affirmations.Count < 1)
+                {
+                    //user has no more affirmations left, the reminder is unnecessary
+                    App.ViewModel.ReminderHelper.TryUnscheduleReminder();
+                }
 
                 try
                 {
