@@ -62,7 +62,7 @@ namespace Affirmations.View
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Afirmacje\n\u0169 2014 Krzysztof Zbiciński");
+            MessageBox.Show("Bardzo ładny about.\n\nOstatnio majstrowano przy aplikacji: 05.04.2014.");
         }
 
         private void htRepeat_Tap(object sender, System.Windows.Input.GestureEventArgs e)

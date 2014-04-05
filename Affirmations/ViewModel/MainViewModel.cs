@@ -154,5 +154,10 @@ namespace Affirmations.ViewModel
         {
             Storage.ResetAll();
         }
+
+        public string ShowSettings()
+        {
+            return Storage.ToString() + "\n\nLiczba afirmacji: " + Storage.Affirmations.Count;
+        }
     }
 }

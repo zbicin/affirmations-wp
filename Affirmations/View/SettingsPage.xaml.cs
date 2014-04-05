@@ -49,8 +49,14 @@ namespace Affirmations.View
             {
                 App.ViewModel.ResetAll();
                 App.ViewModel = new MainViewModel();
-                MessageBox.Show("Zrobione.");
+                MessageBox.Show("Zrobione. Uruchom ponownie aplikację.");
+                new Application().Terminate();
             }
+        }
+
+        private void buttonShowSettings_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(App.ViewModel.ShowSettings());
         }
     }
 }

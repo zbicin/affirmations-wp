@@ -80,7 +80,7 @@
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"
                                    Visibility="{Binding IsFirstRepetitionDone, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
-                                   Text="Naciśnij powyższy kafelek, aby powtórzyć swoje afirmacje po raz pierwszy."/>
+                                   Text="Naciśnij powyższy kafelek, aby powtórzyć swoje afirmacje."/>
                         <!-- last repetition date -->
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"

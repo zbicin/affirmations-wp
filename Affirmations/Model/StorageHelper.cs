@@ -145,5 +145,30 @@ namespace Affirmations.Model
                 local.DeleteDirectory(STORAGE_FOLDERNAME);
             }
         }
+
+        public override string ToString()
+        {
+            return ToString(false);
+        }
+
+        public string ToString(bool includeAffirmations)
+        {
+            StringBuilder result = new StringBuilder();
+
+            foreach (var singleSetting in Settings)
+            {
+                result.AppendLine(singleSetting.Key + ": " + (singleSetting.Value ?? "null"));
+            }
+
+            if (includeAffirmations)
+            {
+                foreach (var singleAffirmation in Affirmations)
+                {
+                    result.AppendLine(singleAffirmation.CreatedAt.ToShortDateString() + " | " + singleAffirmation.Text);
+                }
+            }
+
+            return result.ToString();
+        }
     }
 }
