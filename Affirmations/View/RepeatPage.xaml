@@ -24,27 +24,22 @@
         <local:InverseBooleanConverter x:Key="InverseBoolean" />
     </phone:PhoneApplicationPage.Resources>
     <i:Interaction.Behaviors>
-        <cimbalinoBehaviors:ApplicationBarBehavior Mode="{Binding BarMode}">
-            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" 
-                                                         IsEnabled="{Binding IsFinishAvailable}" 
-                                                         Text="zakończ"
-                                                         x:Name="buttonFinish"
-                                                         Click="buttonFinish_Click"/>
+        <cimbalinoBehaviors:ApplicationBarBehavior>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" 
                                                          IsEnabled="{Binding IsPreviousAffirmationAvailable}" 
                                                          Text="poprzednia"
                                                          x:Name="buttonPrevious"
                                                          Click="buttonPrevious_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" 
-                                                         IsEnabled="{Binding IsNextAffirmationAvailable}" 
+                                                         IsVisible="{Binding IsNextAffirmationAvailable}" 
                                                          Text="następna"
                                                          x:Name="buttonNext"
                                                          Click="buttonNext_Click"/>
-            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Cancel.png" 
-                                                        Text="powrót"
-                                                        x:Name="buttonCancel"
-                                                        IsEnabled="{Binding IsFinishAvailable, Converter={StaticResource InverseBoolean}}"
-                                                        Click="buttonCancel_Click"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" 
+                                                         IsVisible="{Binding IsNextAffirmationAvailable, Converter={StaticResource InverseBoolean}}" 
+                                                         Text="zakończ"
+                                                         x:Name="buttonFinish"
+                                                         Click="buttonFinish_Click"/>
 
         </cimbalinoBehaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>

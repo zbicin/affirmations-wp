@@ -13,18 +13,6 @@ namespace Affirmations.ViewModel
     {
         public ObservableCollection<Affirmation> Affirmations { get; set; }
 
-        private ApplicationBarMode _barMode;
-        public ApplicationBarMode BarMode
-        {
-            get
-            {
-                return _barMode;
-            }
-            set
-            {
-                SetProperty<ApplicationBarMode>(ref _barMode, value);
-            }
-        }
 
         private Affirmation _currentAffirmation;
         public Affirmation CurrentAffirmation
@@ -94,7 +82,6 @@ namespace Affirmations.ViewModel
         public RepeatViewModel()
         {
             CurrentAffirmationIndex = 0;
-            BarMode = ApplicationBarMode.Default;
             Affirmations = App.ViewModel.Affirmations;
             CurrentAffirmation = Affirmations[CurrentAffirmationIndex];
             IsFinishAvailable = Affirmations.Count == 1;

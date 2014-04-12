@@ -28,18 +28,11 @@
         <cimbalinoHelpers:NamescopeBinding x:Key="pvPages" Source="{Binding ElementName=pvPages}" />
     </phone:PhoneApplicationPage.Resources>
     <i:Interaction.Behaviors>
-        <cimbalinoBehaviors:ApplicationBarBehavior Mode="{Binding Source.SelectedIndex, Source={StaticResource pvPages}, Converter={StaticResource IntegerToBarMode}}">
+        <cimbalinoBehaviors:ApplicationBarBehavior>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/add.png"
                                                          Text="dodaj"
                                                          x:Name="buttonAdd"
-                                                         Click="buttonAdd_Click"
-                                                         IsVisible="{Binding Source.SelectedIndex, Source={StaticResource pvPages}}"/>
-            <cimbalinoBehaviors:ApplicationBarIconButton x:Name="buttonRepeat" 
-                                            IconUri="/Assets/AppBar/play.smartdj.png" 
-                                            Text="powtórz"
-                                            Click="buttonRepeat_Click"
-                                            IsVisible="False"
-                                            IsEnabled="{Binding Source.ItemsSource.Count, Source={StaticResource listAffirmations}}"/>
+                                                         Click="buttonAdd_Click"/>
             <cimbalinoBehaviors:ApplicationBarBehavior.MenuItems>
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonSettings"
                                                            Text="ustawienia"
@@ -62,6 +55,7 @@
                         <Grid Height="210"
                               HorizontalAlignment="Stretch"
                               Margin="12,0,12,12"
+                              toolkit:TiltEffect.IsTiltEnabled="True"
                               Background="{StaticResource PhoneAccentBrush}"
                               Tap="htRepeat_Tap">
                             <Image Source="/Assets/Tiles/FlipCycleTileSmall.png" 
@@ -70,8 +64,8 @@
                                    Stretch="None"/>
                             <TextBlock Text="powtórz teraz"
                                        VerticalAlignment="Bottom"
-                                       Style="{StaticResource PhoneTextLargeStyle}"
-                                       Margin="12"
+                                       Style="{StaticResource PhoneTextTitle3Style}"
+                                       Margin="12, 8, 12, 8"
                                        />
                         </Grid>
 
@@ -94,20 +88,24 @@
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"
+                                   Tap="TextBlock_Tap"
                                    Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
                                    Text="Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz. "/>
                         <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
                                    TextWrapping="Wrap"
+                                   Tap="TextBlock_Tap"
                                    Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
                                    Text="{Binding ReminderDateTime, StringFormat='{}{0:t}.'}"/>
                         <!-- reminder info/encouragement -->
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"
+                                   Tap="TextBlock_Tap"
                                    Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
                                    Text="Przypomnienia o codziennej powtórce są "/>
                         <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
                                    TextWrapping="Wrap"
+                                   Tap="TextBlock_Tap"
                                    Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
                                    Text="wyłączone."/>
 

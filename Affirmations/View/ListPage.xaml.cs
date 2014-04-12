@@ -43,18 +43,6 @@ namespace Affirmations.View
             NavigationService.Navigate(new Uri("/View/AddPage.xaml", UriKind.Relative));
         }
 
-        private void buttonRepeat_Click(object sender, EventArgs e)
-        {
-            if (App.ViewModel.Affirmations.Count > 0)
-            {
-                NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
-            }
-            else
-            {
-                MessageBox.Show("Nie dodałeś jeszcze rzadnej afirmacji.");
-            }
-        }
-
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/View/SettingsPage.xaml", UriKind.Relative));
@@ -67,7 +55,19 @@ namespace Affirmations.View
 
         private void htRepeat_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            buttonRepeat_Click(sender, e);
+            if (App.ViewModel.Affirmations.Count > 0)
+            {
+                NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("Nie dodałeś jeszcze rzadnej afirmacji.");
+            }
+        }
+
+        private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/View/SettingsPage.xaml", UriKind.Relative));
         }
 
 

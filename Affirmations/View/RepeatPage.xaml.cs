@@ -22,18 +22,6 @@ namespace Affirmations.View
             DataContext = viewModel;
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-            else
-            {
-                NavigationService.Navigate(new Uri("/View/ListPage.xaml", UriKind.Relative));
-            }
-        }
-
         private void buttonNext_Click(object sender, EventArgs e)
         {
             startAnimation(() => viewModel.NextAffirmation());
