@@ -24,6 +24,7 @@ namespace Affirmations.View
 
             DataContext = App.ViewModel;
 
+            UpdateListVisibility();
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -70,6 +71,11 @@ namespace Affirmations.View
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateListVisibility();
+        }
+
+        private void UpdateListVisibility()
         {
             // hide list page if there are no affirmations
             if (App.ViewModel.Affirmations.Count < 1)
