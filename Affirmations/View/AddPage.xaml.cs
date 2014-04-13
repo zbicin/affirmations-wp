@@ -20,7 +20,7 @@ namespace Affirmations
             InitializeComponent();
             App.ViewModel.NewAffirmation = new Affirmation
             {
-                Text = "Jesteś zwycięzcą!",
+                Text = Affirmation.GetRandomText(),
                 CreatedAt = DateTime.Now
             };
             DataContext = App.ViewModel;

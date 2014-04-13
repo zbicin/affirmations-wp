@@ -11,6 +11,7 @@ using Affirmations.Resources;
 using Affirmations.Model;
 using Affirmations.ViewModel;
 using System.Collections.ObjectModel;
+using System.Text;
 
 namespace Affirmations.View
 {
@@ -29,7 +30,7 @@ namespace Affirmations.View
             //BuildLocalizedApplicationBar();
         }
 
-        private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void ListedAffirmation_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             StackPanel spSender = (StackPanel)sender;
             Affirmation affirmation = (Affirmation)spSender.DataContext;
@@ -50,19 +51,14 @@ namespace Affirmations.View
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bardzo ładny about.\n\nOstatnio majstrowano przy aplikacji: 05.04.2014.");
+            string aboutContents = String.Format("Afirmacje {0}\n\u00a92014 Krzysztof Zbiciński\n\nW razie pytań, problemów czy sugestii, łap mnie mailowo: k.zbicinski@gmail.com.", App.GetVersion());
+
+            MessageBox.Show(aboutContents, "O programie", MessageBoxButton.OK);
         }
 
         private void htRepeat_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            if (App.ViewModel.Affirmations.Count > 0)
-            {
-                NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
-            }
-            else
-            {
-                MessageBox.Show("Nie dodałeś jeszcze rzadnej afirmacji.");
-            }
+             NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
         }
 
         private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -87,6 +83,11 @@ namespace Affirmations.View
             {
                 pvPages.IsLocked = false;
             }
+        }
+
+        private void buttonRepeat_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
         }
 
 

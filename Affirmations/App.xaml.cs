@@ -40,6 +40,21 @@ namespace Affirmations
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
+        public static string GetVersion()
+        {
+            var xmlReaderSettings = new System.Xml.XmlReaderSettings
+            {
+                XmlResolver = new System.Xml.XmlXapResolver()
+            };
+
+            using (var xmlReader = System.Xml.XmlReader.Create("WMAppManifest.xml", xmlReaderSettings))
+            {
+                xmlReader.ReadToDescendant("App");
+
+                return xmlReader.GetAttribute("Version");
+            }
+        }
+
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>

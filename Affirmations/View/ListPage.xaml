@@ -35,6 +35,11 @@
                                                          Text="dodaj"
                                                          x:Name="buttonAdd"
                                                          Click="buttonAdd_Click"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/cogs.png"
+                                                         Text="powtórz teraz"
+                                                         IsVisible="{Binding Source.ItemsSource.Count, Source={StaticResource listAffirmations}}"
+                                                         x:Name="buttonRepeat"
+                                                         Click="buttonRepeat_Click"/>
             <cimbalinoBehaviors:ApplicationBarBehavior.MenuItems>
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonSettings"
                                                            Text="ustawienia"
@@ -130,7 +135,7 @@
                             <phone:LongListSelector.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical"
-                                        Tap="StackPanel_Tap"
+                                        Tap="ListedAffirmation_Tap"
                                         Margin="0,0,0,8">
                                         <TextBlock
                                 Text="{Binding Text, Mode=TwoWay}"
