@@ -24,7 +24,6 @@ namespace Affirmations.View
 
             DataContext = App.ViewModel;
 
-
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -68,6 +67,20 @@ namespace Affirmations.View
         private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             NavigationService.Navigate(new Uri("/View/SettingsPage.xaml", UriKind.Relative));
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            // hide list page if there are no affirmations
+            if (App.ViewModel.Affirmations.Count < 1)
+            {
+                pvPages.SelectedIndex = 0;
+                pvPages.IsLocked = true;
+            }
+            else
+            {
+                pvPages.IsLocked = false;
+            }
         }
 
 

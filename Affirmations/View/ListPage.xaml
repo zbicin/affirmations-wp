@@ -18,10 +18,12 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
     Style="{StaticResource AnimatedPage}"
-    toolkit:TiltEffect.IsTiltEnabled="True">
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    Loaded="PhoneApplicationPage_Loaded">
     <phone:PhoneApplicationPage.Resources>
         <local:IntegerToVisibilityConverter x:Key="IntegerToVisibility" />
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+        <local:InverseBooleanConverter x:Key="InverseBoolean" />
         <local:IntegerToBarModeConverter x:Key="IntegerToBarMode" />
         <toolkit:RelativeTimeConverter x:Key="RelativeTime" />
         <cimbalinoHelpers:NamescopeBinding x:Key="listAffirmations" Source="{Binding ElementName=listAffirmations}" />
@@ -46,13 +48,14 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <phone:Pivot Title="AFIRMACJE" x:Name="pvPages">
+        <phone:Pivot Title="AFIRMACJE" 
+                     x:Name="pvPages">
             <!--Pivot item one-->
             <phone:PivotItem Header="witaj">
                 <Grid>
                     <StackPanel Orientation="Vertical"
                                 Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}}">
-                        <Grid Height="210"
+                            <Grid Height="210"
                               HorizontalAlignment="Stretch"
                               Margin="12,0,12,12"
                               toolkit:TiltEffect.IsTiltEnabled="True"
@@ -108,17 +111,11 @@
                                    Tap="TextBlock_Tap"
                                    Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
                                    Text="wyłączone."/>
-
-
                     </StackPanel>
                     <StackPanel Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}">
-                        <Image Source="/Assets/ApplicationIcon.png"
-                               HorizontalAlignment="Center"
-                               Stretch="None" />
-                        <TextBlock Text="Tu będzie jakieś ładne wyjaśnienie idei aplikacji"
-                                   TextWrapping="Wrap"
-                                   Style="{StaticResource PhoneTextNormalStyle}"
-                                    />
+                        <TextBlock Text="Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu."
+                           Style="{StaticResource PhoneTextGroupHeaderStyle}"
+                           TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </phone:PivotItem>
@@ -127,12 +124,7 @@
             <phone:PivotItem Header="lista">
                 <Grid x:Name="ContentPanel">
                     <StackPanel>
-                        <TextBlock Text="Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu."
-                           Style="{StaticResource PhoneTextGroupHeaderStyle}"
-                           TextWrapping="Wrap"
-                           Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}"/>
-                        <phone:LongListSelector x:Name="listAffirmations" 
-                                        Visibility="{Binding ItemsSource.Count, RelativeSource={RelativeSource Self},Converter={StaticResource IntegerToVisibility}}"
+                         <phone:LongListSelector x:Name="listAffirmations" 
                                         ItemsSource="{Binding Affirmations}" 
                                         Margin="0">
                             <phone:LongListSelector.ItemTemplate>
