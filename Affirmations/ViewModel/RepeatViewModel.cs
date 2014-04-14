@@ -27,6 +27,19 @@ namespace Affirmations.ViewModel
             }
         }
 
+        private bool _isRepetitionFinished;
+        public bool IsRepetitionFinished
+        {
+            get
+            {
+                return _isRepetitionFinished;
+            }
+            set
+            {
+                SetProperty<bool>(ref _isRepetitionFinished, value);
+            }
+        }
+
         private bool _isNextAffirmationAvailable;
         public bool IsNextAffirmationAvailable
         {
@@ -53,16 +66,29 @@ namespace Affirmations.ViewModel
             }
         }
 
-        private bool _isFinishAvailable;
-        public bool IsFinishAvailable
+        private bool _isFinishVisible;
+        public bool IsFinishVisible
         {
             get
             {
-                return _isFinishAvailable;
+                return _isFinishVisible;
             }
             set
             {
-                SetProperty<bool>(ref _isFinishAvailable, value);
+                SetProperty<bool>(ref _isFinishVisible, value);
+            }
+        }
+
+        private bool _isNextAffirmationVisible;
+        public bool IsNextAffirmationVisible
+        {
+            get
+            {
+                return _isNextAffirmationVisible;
+            }
+            set
+            {
+                SetProperty<bool>(ref _isNextAffirmationVisible, value);
             }
         }
 
@@ -84,7 +110,7 @@ namespace Affirmations.ViewModel
             CurrentAffirmationIndex = 0;
             Affirmations = App.ViewModel.Affirmations;
             CurrentAffirmation = Affirmations[CurrentAffirmationIndex];
-            IsFinishAvailable = Affirmations.Count == 1;
+            IsRepetitionFinished = Affirmations.Count == 1;
             
             UpdateSwitchesAvailability();
         }
@@ -113,13 +139,15 @@ namespace Affirmations.ViewModel
 
         public void UpdateSwitchesAvailability()
         {
-            IsNextAffirmationAvailable = !(CurrentAffirmationIndex == Affirmations.Count - 1);
+            IsNextAffirmationAvailable = true;
             IsPreviousAffirmationAvailable = CurrentAffirmationIndex > 0;
+            IsNextAffirmationVisible = !(CurrentAffirmationIndex == Affirmations.Count - 1);
+            IsFinishVisible = !IsNextAffirmationVisible;
 
-            if (IsFinishAvailable == false
-                && IsNextAffirmationAvailable == false)
+            if (IsRepetitionFinished == false
+                && IsNextAffirmationVisible == false)
             {
-                IsFinishAvailable = true;
+                IsRepetitionFinished = true;
             }
         }
 

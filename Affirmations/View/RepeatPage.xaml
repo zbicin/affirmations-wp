@@ -31,12 +31,13 @@
                                                          x:Name="buttonPrevious"
                                                          Click="buttonPrevious_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" 
-                                                         IsVisible="{Binding IsNextAffirmationAvailable}" 
+                                                         IsVisible="{Binding IsFinishVisible, Converter={StaticResource InverseBoolean}}" 
+                                                         IsEnabled="{Binding IsNextAffirmationAvailable}"
                                                          Text="następna"
                                                          x:Name="buttonNext"
                                                          Click="buttonNext_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" 
-                                                         IsVisible="{Binding IsNextAffirmationAvailable, Converter={StaticResource InverseBoolean}}" 
+                                                         IsVisible="{Binding IsFinishVisible}" 
                                                          Text="zakończ"
                                                          x:Name="buttonFinish"
                                                          Click="buttonFinish_Click"/>
