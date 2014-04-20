@@ -90,6 +90,12 @@ namespace Affirmations.View
             NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
         }
 
+        private void buttonRate_Click(object sender, EventArgs e)
+        {
+            Microsoft.Phone.Tasks.MarketplaceReviewTask marketplaceReviewTask = new Microsoft.Phone.Tasks.MarketplaceReviewTask();
+            marketplaceReviewTask.Show();
+        }
+
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

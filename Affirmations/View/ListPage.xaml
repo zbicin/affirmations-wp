@@ -44,6 +44,9 @@
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonSettings"
                                                            Text="ustawienia"
                                                            Click="buttonSettings_Click" />
+                <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonRate"
+                                                           Text="oceń i opisz"
+                                                           Click="buttonRate_Click" />
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonAbout"
                                                            Text="o programie"
                                                            Click="buttonAbout_Click" />
