@@ -23,6 +23,8 @@
     <phone:PhoneApplicationPage.Resources>
         <cimbalinoHelpers:NamescopeBinding x:Key="listAffirmations" Source="{Binding ElementName=listAffirmations}" />
         <local:InverseBooleanConverter x:Key="InverseBoolean" />
+        <system:Double x:Key="dTranslationPositive">30.0</system:Double>
+        <system:Double x:Key="dTranslationNegative">-30.0</system:Double>
     </phone:PhoneApplicationPage.Resources>
     <i:Interaction.Behaviors>
         <cimbalinoBehaviors:ApplicationBarBehavior>
@@ -57,7 +59,7 @@
                     <DoubleAnimation
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
-                        From="0.0" To="-20.0" Duration="0:0:0.2" />
+                        From="0.0" To="{StaticResource dTranslationNegative}" Duration="0:0:0.2" />
                     <DoubleAnimation
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="Opacity"
@@ -67,7 +69,7 @@
                     <DoubleAnimation
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
-                        From="0.0" To="20.0" Duration="0:0:0.2" />
+                        From="0.0" To="{StaticResource dTranslationPositive}" Duration="0:0:0.2" />
                     <DoubleAnimation
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="Opacity"
@@ -81,7 +83,7 @@
                     <DoubleAnimation
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
-                        From="-20.0" To="0.0" Duration="0:0:0.2" />
+                        From="{StaticResource dTranslationNegative}" To="0.0" Duration="0:0:0.2" />
                 </Storyboard>
                 <Storyboard x:Name="sbRightFadeIn">
                     <DoubleAnimation
@@ -91,7 +93,7 @@
                     <DoubleAnimation
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
-                        From="20.0" To="0.0" Duration="0:0:0.2" />
+                        From="{StaticResource dTranslationPositive}" To="0.0" Duration="0:0:0.2" />
                 </Storyboard>
             </StackPanel.Resources>
             <TextBlock x:Name="tbContents"
