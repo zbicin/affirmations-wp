@@ -29,7 +29,7 @@
     <i:Interaction.Behaviors>
         <cimbalinoBehaviors:ApplicationBarBehavior>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" 
-                                                         IsEnabled="{Binding IsPreviousAffirmationAvailable}" 
+                                                         IsEnabled="{Binding IsPreviousAffirmationAvailable}"
                                                          Text="poprzednia"
                                                          x:Name="buttonPrevious"
                                                          Click="buttonPrevious_Click"/>
