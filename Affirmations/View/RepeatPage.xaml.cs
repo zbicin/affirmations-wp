@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Affirmations.ViewModel;
+using System.Windows.Media.Animation;
 
 namespace Affirmations.View
 {
@@ -24,15 +25,15 @@ namespace Affirmations.View
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            startAnimation(() => viewModel.NextAffirmation());
+            startAnimation(sbRightFadeIn, sbLeftFadeOut, () => viewModel.NextAffirmation());
         }
 
         private void buttonPrevious_Click(object sender, EventArgs e)
         {
-            startAnimation(() => viewModel.PreviousAffirmation());
+            startAnimation(sbLeftFadeIn, sbRightFadeOut, () => viewModel.PreviousAffirmation());
         }
 
-        private void startAnimation(Action switchAffirmationMethod) {
+        private void startAnimation(Storyboard animationIn, Storyboard animationOut, Action switchAffirmationMethod) {
             EventHandler temporalFadeOutCompletedHandler = null;
             temporalFadeOutCompletedHandler = (completedFadeOutSender, completedFadeOutEvents) =>
             {
@@ -40,22 +41,22 @@ namespace Affirmations.View
                 temporalFadeInCompletedHandler = (completedFadeInSender, completedFadeInEvents) =>
                 {
                     viewModel.UpdateSwitchesAvailability();
-                    sbFadeIn.Completed -= temporalFadeInCompletedHandler;
+                    animationIn.Completed -= temporalFadeInCompletedHandler;
                 };
 
                 switchAffirmationMethod();
 
-                sbFadeIn.Completed += temporalFadeInCompletedHandler;
-                sbFadeIn.Begin();
+                animationIn.Completed += temporalFadeInCompletedHandler;
+                animationIn.Begin();
 
-                sbFadeOut.Completed -= temporalFadeOutCompletedHandler;
+                animationOut.Completed -= temporalFadeOutCompletedHandler;
             };
 
-            sbFadeOut.Completed += temporalFadeOutCompletedHandler;
+            animationOut.Completed += temporalFadeOutCompletedHandler;
 
             viewModel.DisableSwitches();
 
-            sbFadeOut.Begin();
+            animationOut.Begin();
         }
 
         private void buttonFinish_Click(object sender, EventArgs e)

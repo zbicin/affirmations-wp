@@ -11,6 +11,7 @@
     xmlns:cimbalinoBehaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
     xmlns:cimbalinoHelpers="clr-namespace:Cimbalino.Phone.Toolkit.Helpers;assembly=Cimbalino.Phone.Toolkit"
     xmlns:local="clr-namespace:Affirmations.View"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -52,17 +53,45 @@
                                 VerticalAlignment="Center"
                                 Margin="12,0,12,0">
             <StackPanel.Resources>
-                <Storyboard x:Name="sbFadeOut">
+                <Storyboard x:Name="sbLeftFadeOut">
+                    <DoubleAnimation
+                        Storyboard.TargetName="tbContents"
+                        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                        From="0.0" To="-20.0" Duration="0:0:0.2" />
                     <DoubleAnimation
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="Opacity"
                         From="1.0" To="0.0" Duration="0:0:0.2" />
                 </Storyboard>
-                <Storyboard x:Name="sbFadeIn">
+                <Storyboard x:Name="sbRightFadeOut">
+                    <DoubleAnimation
+                        Storyboard.TargetName="tbContents"
+                        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                        From="0.0" To="20.0" Duration="0:0:0.2" />
+                    <DoubleAnimation
+                        Storyboard.TargetName="tbContents"
+                        Storyboard.TargetProperty="Opacity"
+                        From="1.0" To="0.0" Duration="0:0:0.2" />
+                </Storyboard>
+                <Storyboard x:Name="sbLeftFadeIn">
                     <DoubleAnimation
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="Opacity"
                         From="0.0" To="1.0" Duration="0:0:0.2" />
+                    <DoubleAnimation
+                        Storyboard.TargetName="tbContents"
+                        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                        From="-20.0" To="0.0" Duration="0:0:0.2" />
+                </Storyboard>
+                <Storyboard x:Name="sbRightFadeIn">
+                    <DoubleAnimation
+                        Storyboard.TargetName="tbContents"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.0" To="1.0" Duration="0:0:0.2" />
+                    <DoubleAnimation
+                        Storyboard.TargetName="tbContents"
+                        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                        From="20.0" To="0.0" Duration="0:0:0.2" />
                 </Storyboard>
             </StackPanel.Resources>
             <TextBlock x:Name="tbContents"
@@ -70,7 +99,11 @@
                                    Style="{StaticResource PhoneTextExtraLargeStyle}"
                                    TextWrapping="Wrap"
                                    TextAlignment="Center"
-                                   Margin="0,0,0,10"/>
+                                   Margin="0,0,0,10">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform />
+                </TextBlock.RenderTransform>
+            </TextBlock>
             <TextBlock x:Name="tbProgress"
                                    Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextAlignment="Center"

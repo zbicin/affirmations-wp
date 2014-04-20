@@ -48,15 +48,18 @@
             <toolkit:TimePicker x:Name="tpReminderDateTime"
                                 Value="{Binding ReminderDateTime, Mode=TwoWay}" 
                                 Visibility="{Binding IsChecked, ElementName=tsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"/>
-            <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
-                       Text="Poniższe przyciski zostaną ukryte w wersji finalnej" 
-                       TextWrapping="Wrap"/>
-            <Button x:Name="buttonShowSettings"
-                    Click="buttonShowSettings_Click"
-                    Content="Pokaż plik konfiguracji"/>
-            <Button x:Name="buttonDebugTime"
-                    Click="buttonDebugTime_Click"
-                    Content="Wyczyść konfigurację i afirmacje"/>
+            <StackPanel Margin="0"
+                        Visibility="Collapsed">
+                <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
+                           Text="Poniższe przyciski zostaną ukryte w wersji finalnej" 
+                           TextWrapping="Wrap"/>
+                <Button x:Name="buttonShowSettings"
+                        Click="buttonShowSettings_Click"
+                        Content="Pokaż plik konfiguracji"/>
+                <Button x:Name="buttonDebugTime"
+                        Click="buttonDebugTime_Click"
+                        Content="Wyczyść konfigurację i afirmacje"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 
