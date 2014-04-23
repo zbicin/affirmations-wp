@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="View\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="View\Converters\InverseDoubleConverter.cs" />
     <Compile Include="View\EditPage.xaml.cs">
       <DependentUpon>EditPage.xaml</DependentUpon>
     </Compile>

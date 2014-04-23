@@ -23,6 +23,7 @@
     <phone:PhoneApplicationPage.Resources>
         <cimbalinoHelpers:NamescopeBinding x:Key="listAffirmations" Source="{Binding ElementName=listAffirmations}" />
         <local:InverseBooleanConverter x:Key="InverseBoolean" />
+        <local:InverseDoubleConverter x:Key="InverseDouble" />
         <system:Double x:Key="dTranslationPositive">30.0</system:Double>
         <system:Double x:Key="dTranslationNegative">-30.0</system:Double>
     </phone:PhoneApplicationPage.Resources>
@@ -64,6 +65,34 @@
                         Storyboard.TargetName="tbContents"
                         Storyboard.TargetProperty="Opacity"
                         From="1.0" To="0.0" Duration="0:0:0.2" />
+                </Storyboard>
+                <Storyboard x:Name="sbLeftSlideOut">
+                    <DoubleAnimation
+                            Storyboard.TargetName="tbContents"
+                            Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                            From="0.0" To="{Binding ElementName=LayoutRoot,Path=ActualWidth, Converter={StaticResource InverseDouble}}"
+                            Duration="0:0:0.2"/>
+                </Storyboard>
+                <Storyboard x:Name="sbLeftSlideIn">
+                    <DoubleAnimation
+                            Storyboard.TargetName="tbContents"
+                            Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                            From="{Binding ElementName=LayoutRoot,Path=ActualWidth, Converter={StaticResource InverseDouble}}" To="0.0"
+                            Duration="0:0:0.2" />
+                </Storyboard>
+                <Storyboard x:Name="sbRightSlideOut">
+                    <DoubleAnimation
+                            Storyboard.TargetName="tbContents"
+                            Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                            From="0.0" To="{Binding ElementName=LayoutRoot,Path=ActualWidth}"
+                            Duration="0:0:0.2" />
+                </Storyboard>
+                <Storyboard x:Name="sbRightSlideIn">
+                    <DoubleAnimation
+                            Storyboard.TargetName="tbContents"
+                            Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                            From="{Binding ElementName=LayoutRoot,Path=ActualWidth}" To="0.0"
+                            Duration="0:0:0.2" />
                 </Storyboard>
                 <Storyboard x:Name="sbRightFadeOut">
                     <DoubleAnimation

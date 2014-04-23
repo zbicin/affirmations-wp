@@ -25,12 +25,12 @@ namespace Affirmations.View
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            startAnimation(sbRightFadeIn, sbLeftFadeOut, () => viewModel.NextAffirmation());
+            startAnimation(sbRightSlideIn, sbLeftSlideOut, () => viewModel.NextAffirmation());
         }
 
         private void buttonPrevious_Click(object sender, EventArgs e)
         {
-            startAnimation(sbLeftFadeIn, sbRightFadeOut, () => viewModel.PreviousAffirmation());
+            startAnimation(sbLeftSlideIn, sbRightSlideOut, () => viewModel.PreviousAffirmation());
         }
 
         private void startAnimation(Storyboard animationIn, Storyboard animationOut, Action switchAffirmationMethod) {
