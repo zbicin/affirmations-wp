@@ -157,7 +157,7 @@ namespace Affirmations.ViewModel
 
         public string ShowSettings()
         {
-            return Storage.ToString() + "\n\nLiczba afirmacji: " + Storage.Affirmations.Count;
+            return Storage.ToString() + "\nPora następnego przypomnienia: " + ReminderHelper.GetBeginDate(LastRepetitionDate).ToString() + "\n\nLiczba afirmacji: " + Storage.Affirmations.Count;
         }
     }
 }

@@ -18,7 +18,11 @@ namespace Affirmations.View
         {
             InitializeComponent();
 
-            DataContext = App.ViewModel;            
+            DataContext = App.ViewModel;   
+         
+#if DEBUG
+            spDebug.Visibility = System.Windows.Visibility.Visible;
+#endif
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

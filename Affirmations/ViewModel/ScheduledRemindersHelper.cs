@@ -10,6 +10,23 @@ namespace Affirmations.ViewModel
     {
         private const string REMINDER_ID = "affirmationsReminder";
 
+        public DateTime GetBeginDate(DateTime LastRepetitionDate)
+        {
+            if (LastRepetitionDate.Date.CompareTo(DateTime.Now.Date) < 0
+                && DateTime.Now.TimeOfDay.CompareTo(App.ViewModel.ReminderDateTime.TimeOfDay) < 0)
+            {
+                // if we repeated yesterday
+                // and the reminder time hasn't passed today yet
+                // so we can set it today
+                return DateTime.Now.Date.Add(App.ViewModel.ReminderDateTime.TimeOfDay);
+            }
+            else
+            {
+                // otherwise - tommorow
+                return DateTime.Now.Date.AddDays(1).Add(App.ViewModel.ReminderDateTime.TimeOfDay);
+            }
+        }
+
         public void TryScheduleReminder(DateTime LastRepetitionDate)
         {
             if (ScheduledActionService.Find(REMINDER_ID) != null)
@@ -17,21 +34,7 @@ namespace Affirmations.ViewModel
                 ScheduledActionService.Remove(REMINDER_ID);
             }
 
-            DateTime BeginTime;
-
-            if (LastRepetitionDate.Date.CompareTo(DateTime.Now.Date) < 0
-                && DateTime.Now.TimeOfDay.CompareTo(App.ViewModel.ReminderDateTime.TimeOfDay) < 0)
-            {
-                // if we repeated yesterday
-                // and the reminder time hasn't passed today yet
-                // so we can set it today
-                BeginTime = DateTime.Now.Date.Add(App.ViewModel.ReminderDateTime.TimeOfDay);
-            }
-            else
-            {
-                // otherwise - tommorow
-                BeginTime = DateTime.Now.Date.AddDays(1).Add(App.ViewModel.ReminderDateTime.TimeOfDay);
-            }
+            DateTime BeginTime = GetBeginDate(LastRepetitionDate);            
 
             Reminder scheduledReminder = new Reminder(REMINDER_ID);
 
