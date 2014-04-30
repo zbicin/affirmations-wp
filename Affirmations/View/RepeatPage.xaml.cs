@@ -78,6 +78,7 @@ namespace Affirmations.View
             App.ViewModel.LastRepetitionDate = DateTime.Now;
             App.ViewModel.SaveSettings();
 
+            App.ViewModel.ReminderHelper.TryScheduleReminder(App.ViewModel.LastRepetitionDate);
         }
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
