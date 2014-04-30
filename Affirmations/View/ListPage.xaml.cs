@@ -26,6 +26,10 @@ namespace Affirmations.View
             DataContext = App.ViewModel;
 
             UpdateListVisibility();
+
+#if DEBUG
+            pvPages.Title += " WERSJA DEWELOPERSKA";
+#endif
         }
 
         private void ListedAffirmation_Tap(object sender, System.Windows.Input.GestureEventArgs e)
