@@ -91,5 +91,30 @@ namespace Affirmations.View
 
             base.OnBackKeyPress(e);
         }
+
+        private void PhoneApplicationPage_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
+        {
+            if (e.IsInertial)
+            {
+                double horizontalVelocity = e.FinalVelocities.LinearVelocity.X;
+                double verticalVelocity = e.FinalVelocities.LinearVelocity.Y;
+
+                bool isHorizontal = Math.Abs(horizontalVelocity) >= Math.Abs(verticalVelocity);
+
+                if (horizontalVelocity < 0
+                    && isHorizontal
+                    && viewModel.IsNextAffirmationAvailable
+                    && viewModel.IsNextAffirmationVisible)
+                {
+                    buttonNext_Click(sender, null);
+                }
+                else if (horizontalVelocity > 0
+                        && isHorizontal
+                        && viewModel.IsPreviousAffirmationAvailable)
+                {
+                    buttonPrevious_Click(sender, null);
+                }
+            }
+        }
     }
 }
