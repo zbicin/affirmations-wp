@@ -131,27 +131,25 @@
             <!--Pivot item two-->
             <phone:PivotItem Header="lista">
                 <Grid x:Name="ContentPanel">
-                    <StackPanel>
-                         <phone:LongListSelector x:Name="listAffirmations" 
-                                        ItemsSource="{Binding Affirmations}" 
-                                        Margin="0">
-                            <phone:LongListSelector.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Vertical"
-                                        Tap="ListedAffirmation_Tap"
-                                        Margin="0,0,0,8">
-                                        <TextBlock
-                                Text="{Binding Text, Mode=TwoWay}"
-                                Style="{StaticResource PhoneTextLargeStyle}"/>
-                                        <TextBlock
-                                    Text="{Binding CreatedAt, Converter={StaticResource RelativeTime}, StringFormat='Utworzono: {0}.'}"
-                                    Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        <phone:LongListSelector x:Name="listAffirmations" 
+                                    ItemsSource="{Binding Affirmations}" 
+                                    Margin="0">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical"
+                                    Tap="ListedAffirmation_Tap"
+                                    Margin="0,0,0,8">
+                                    <TextBlock
+                            Text="{Binding Text, Mode=TwoWay}"
+                            Style="{StaticResource PhoneTextLargeStyle}"/>
+                                    <TextBlock
+                                Text="{Binding CreatedAt, Converter={StaticResource RelativeTime}, StringFormat='Utworzono: {0}.'}"
+                                Style="{StaticResource PhoneTextSubtleStyle}"/>
 
-                                    </StackPanel>
-                                </DataTemplate>
-                            </phone:LongListSelector.ItemTemplate>
-                        </phone:LongListSelector>
-                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
                 </Grid>
             </phone:PivotItem>
         </phone:Pivot>
