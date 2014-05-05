@@ -63,6 +63,7 @@
                 <Grid>
                     <StackPanel Orientation="Vertical"
                                 Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}}">
+                        <ListBoxItem HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
                             <Grid Height="210"
                               HorizontalAlignment="Stretch"
                               Margin="12,0,12,12"
@@ -78,8 +79,8 @@
                                        Style="{StaticResource PhoneTextTitle3Style}"
                                        Margin="12, 8, 12, 8"
                                        />
-                        </Grid>
-
+                            </Grid>
+                        </ListBoxItem>
                         <!-- repetition encouragement before first time -->
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
@@ -95,30 +96,36 @@
                         <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
                                    Visibility="{Binding IsFirstRepetitionDone, Converter={StaticResource BooleanToVisibility}}"
                                    Text="{Binding LastRepetitionDate, Converter={StaticResource RelativeTime}, StringFormat='{}{0}.'}"/>
-                        <!-- reminder... reminder :) -->
-                        <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
-                                   TextWrapping="Wrap"
-                                   Margin="12,12,12,0"
-                                   Tap="TextBlock_Tap"
-                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
-                                   Text="Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz. "/>
-                        <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
-                                   TextWrapping="Wrap"
-                                   Tap="TextBlock_Tap"
-                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
-                                   Text="{Binding ReminderDateTime, StringFormat='{}{0:t}.'}"/>
-                        <!-- reminder info/encouragement -->
-                        <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
-                                   TextWrapping="Wrap"
-                                   Margin="12,12,12,0"
-                                   Tap="TextBlock_Tap"
-                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
-                                   Text="Przypomnienia o codziennej powtórce są "/>
-                        <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
-                                   TextWrapping="Wrap"
-                                   Tap="TextBlock_Tap"
-                                   Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
-                                   Text="wyłączone."/>
+                        
+                        <ListBoxItem HorizontalAlignment="Stretch"
+                                     HorizontalContentAlignment="Stretch">
+                            <StackPanel>
+                                <!-- reminder... reminder :) -->
+                                <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
+                                           TextWrapping="Wrap"
+                                           Margin="12,12,12,0"
+                                           Tap="TextBlock_Tap"
+                                           Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
+                                           Text="Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz. "/>
+                                <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
+                                           TextWrapping="Wrap"
+                                           Tap="TextBlock_Tap"
+                                           Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
+                                           Text="{Binding ReminderDateTime, StringFormat='{}{0:t}.'}"/>
+                                <!-- reminder info/encouragement -->
+                                <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
+                                           TextWrapping="Wrap"
+                                           Margin="12,12,12,0"
+                                           Tap="TextBlock_Tap"
+                                           Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
+                                           Text="Przypomnienia o codziennej powtórce są "/>
+                                <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
+                                           TextWrapping="Wrap"
+                                           Tap="TextBlock_Tap"
+                                           Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
+                                           Text="wyłączone."/>
+                            </StackPanel>
+                        </ListBoxItem>
                     </StackPanel>
                     <StackPanel Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}">
                         <TextBlock Text="Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu."
