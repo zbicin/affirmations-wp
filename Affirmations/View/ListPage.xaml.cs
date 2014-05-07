@@ -17,6 +17,7 @@ namespace Affirmations.View
 {
     public partial class ListPage : PhoneApplicationPage
     {
+        private Uri RepeatUri;
 
         // Constructor
         public ListPage()
@@ -24,6 +25,7 @@ namespace Affirmations.View
             InitializeComponent();
 
             DataContext = App.ViewModel;
+            RepeatUri = new Uri("/View/RepeatPage.xaml", UriKind.Relative);
 
             UpdateListVisibility();
 
@@ -60,7 +62,7 @@ namespace Affirmations.View
 
         private void htRepeat_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-             NavigationService.Navigate(new Uri("/View/RepeatPage.xaml", UriKind.Relative));
+             NavigationService.Navigate(RepeatUri);
         }
 
         private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -96,6 +98,25 @@ namespace Affirmations.View
         {
             Microsoft.Phone.Tasks.MarketplaceReviewTask marketplaceReviewTask = new Microsoft.Phone.Tasks.MarketplaceReviewTask();
             marketplaceReviewTask.Show();
+        }
+
+        private void miPinRepetition_Click(object sender, RoutedEventArgs e)
+        {
+            StandardTileData newStartTile = new StandardTileData
+            {
+                Title = "powtórz afirmacje",
+                BackgroundImage = new Uri("/Assets/Tiles/FlipCycleTileMedium.png", UriKind.Relative),
+                Count = 0
+            };
+
+            ShellTile.Create(RepeatUri, newStartTile);
+        }
+
+        private void cmRepeat_Opened(object sender, RoutedEventArgs e)
+        {
+            ShellTile repeatTile = ShellTile.ActiveTiles.SingleOrDefault(t => t.NavigationUri.Equals(RepeatUri));
+
+            miPinRepetition.IsEnabled = repeatTile == null;
         }
     }
 }
