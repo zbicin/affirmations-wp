@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Affirmations.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,13 @@ namespace Affirmations.Model
         [Newtonsoft.Json.JsonIgnore]
         private static List<string> PredefinedTexts = new List<string>
         {
-            "Mogę dokonać czegokolwiek zapragnę.",
-            "Tylko ode mnie zależy to, jaki wpływ mają na moje zachowanie inni.",
-            "To ja decyduję jak wygląda moje życie.",
-            "Mój czas jest tu i teraz.",
-            "Każdy dzień jest wspaniałą okazją do przeżycia czegoś niesamowitego.",
-            "Swoje marzenia traktuję jak plany.",
-            "\"Porażki\" to tylko informacja zwrotna."
+            AppResources.ExampleAffirmation1,
+            AppResources.ExampleAffirmation2,
+            AppResources.ExampleAffirmation3,
+            AppResources.ExampleAffirmation4,
+            AppResources.ExampleAffirmation5,
+            AppResources.ExampleAffirmation6,
+            AppResources.ExampleAffirmation7
         };
 
         [Newtonsoft.Json.JsonIgnore]

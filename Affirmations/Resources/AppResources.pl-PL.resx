@@ -147,7 +147,7 @@
   <data name="AppbarRepeat" xml:space="preserve">
     <value>powtórz teraz</value>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
+  <data name="ApplicationTitleCapitalized" xml:space="preserve">
     <value>AFIRMACJE</value>
   </data>
   <data name="CreatedAtLabel" xml:space="preserve">
@@ -212,5 +212,29 @@
   </data>
   <data name="WelcomePivotPlaceholder" xml:space="preserve">
     <value>Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu.</value>
+  </data>
+  <data name="AppbarCancel" xml:space="preserve">
+    <value>anuluj</value>
+  </data>
+  <data name="AppbarDelete" xml:space="preserve">
+    <value>usuń</value>
+  </data>
+  <data name="AppbarSave" xml:space="preserve">
+    <value>zapisz</value>
+  </data>
+  <data name="EditAffirmationCapitalized" xml:space="preserve">
+    <value>EDYTUJ AFIRMACJĘ</value>
+  </data>
+  <data name="NewAffirmationCapitalized" xml:space="preserve">
+    <value>NOWA AFIRMACJA</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Afirmacje</value>
+  </data>
+  <data name="LiveTileTitle" xml:space="preserve">
+    <value>powtórz afirmacje</value>
+  </data>
+  <data name="RepetitionTimeOffLabel" xml:space="preserve">
+    <value>wyłączone.</value>
   </data>
 </root>

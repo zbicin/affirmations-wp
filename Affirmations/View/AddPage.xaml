@@ -26,11 +26,15 @@
     <i:Interaction.Behaviors>
         <cimbalinoBehaviors:ApplicationBarBehavior>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/save.png"
-                                                         Text="zapisz" 
+                                                         Text="{Binding Path=LocalizedResources.AppbarSave, Source={StaticResource LocalizedStrings}}" 
                                                          x:Name="buttonSave" 
                                                          IsEnabled="{Binding Source.Text.Length, Source={StaticResource tbText}}"
                                                          Click="buttonSave_Click"/>
-            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/cancel.png" IsEnabled="True" x:Name="buttonCancel" Click="buttonCancel_Click" Text="anuluj"/>
+            <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/cancel.png"
+                                                         IsEnabled="True"
+                                                         x:Name="buttonCancel"
+                                                         Click="buttonCancel_Click"
+                                                         Text="{Binding Path=LocalizedResources.AppbarCancel, Source={StaticResource LocalizedStrings}}"/>
         </cimbalinoBehaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>
     
@@ -44,7 +48,8 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="NOWA AFIRMACJA" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.NewAffirmationCapitalized, Source={StaticResource LocalizedStrings}}" 
+                       Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->

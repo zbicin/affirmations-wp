@@ -30,7 +30,7 @@ namespace Affirmations.View
             UpdateListVisibility();
 
 #if DEBUG
-            pvPages.Title += " WERSJA DEWELOPERSKA";
+            pvPages.Title += " DEBUG DEBUG DEBUG";
 #endif
         }
 
@@ -55,9 +55,12 @@ namespace Affirmations.View
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            string aboutContents = String.Format("Afirmacje {0}\n\u00a92014 Krzysztof Zbiciński\n\nW razie pytań, problemów czy sugestii, łap mnie mailowo: k.zbicinski@gmail.com.", App.GetVersion());
+            string aboutContents = String.Format("{0} {1}\n\u00a92014 Krzysztof Zbiciński\n\n{2}: k.zbicinski@gmail.com.",
+                AppResources.ApplicationTitle,
+                App.GetVersion(),
+                AppResources.AboutDialogContents);
 
-            MessageBox.Show(aboutContents, "O programie", MessageBoxButton.OK);
+            MessageBox.Show(aboutContents, AppResources.AboutTitle, MessageBoxButton.OK);
         }
 
         private void htRepeat_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -104,7 +107,7 @@ namespace Affirmations.View
         {
             StandardTileData newStartTile = new StandardTileData
             {
-                Title = "powtórz afirmacje",
+                Title = AppResources.LiveTileTitle,
                 BackgroundImage = new Uri("/Assets/Tiles/FlipCycleTileMedium.png", UriKind.Relative),
                 Count = 0
             };

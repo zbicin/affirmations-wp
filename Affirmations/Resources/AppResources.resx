@@ -123,7 +123,7 @@
   <data name="ResourceLanguage" xml:space="preserve">
     <value>en-US</value>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
+  <data name="ApplicationTitleCapitalized" xml:space="preserve">
     <value>AFFIRMATIONS</value>
   </data>
   <data name="AboutDialogContents" xml:space="preserve">
@@ -181,7 +181,7 @@
     <value>The way I feel depends only on me.</value>
   </data>
   <data name="FirstRepetitionLabel" xml:space="preserve">
-    <value>Tap the tile above to repeat your affirmations for the first time.</value>
+    <value>Tap the tile above to repeat your affirmations.</value>
   </data>
   <data name="LastRepetitionDateLabel" xml:space="preserve">
     <value>You've repeated your affirmations</value>
@@ -212,5 +212,32 @@
   </data>
   <data name="WelcomePivotPlaceholder" xml:space="preserve">
     <value>It's empty in here. Add affirmations using the button on the bottom.</value>
+  </data>
+  <data name="AppbarCancel" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="AppbarDelete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="AppbarSave" xml:space="preserve">
+    <value>save</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Affirmations</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Affirmations</value>
+  </data>
+  <data name="EditAffirmationCapitalized" xml:space="preserve">
+    <value>EDIT AFFIRMATION</value>
+  </data>
+  <data name="LiveTileTitle" xml:space="preserve">
+    <value>repeat affirmations</value>
+  </data>
+  <data name="NewAffirmationCapitalized" xml:space="preserve">
+    <value>NEW AFFIRMATION</value>
+  </data>
+  <data name="RepetitionTimeOffLabel" xml:space="preserve">
+    <value>off.</value>
   </data>
 </root>

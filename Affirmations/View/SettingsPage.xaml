@@ -28,8 +28,11 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="AFIRMACJE" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="ustawienia" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitleCapitalized, Source={StaticResource LocalizedStrings}}"
+                       Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.AppbarMenuItemSettings, Source={StaticResource LocalizedStrings}}" 
+                       Margin="9,-7,0,0" 
+                       Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -38,12 +41,12 @@
                     Grid.Row="1" 
                     Margin="12,0,12,0">
 
-            <toolkit:ToggleSwitch Header="Przypomnienia"
+            <toolkit:ToggleSwitch Header="{Binding Path=LocalizedResources.SettingsRemindersLabel, Source={StaticResource LocalizedStrings}}"
                                   IsChecked="{Binding IsReminderEnabled, Mode=TwoWay}"
                                   x:Name="tsReminderEnabled"/>
 
             <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
-                       Text="Godzina przypomnień"
+                       Text="{Binding Path=LocalizedResources.SettingsReminderTimeLabel, Source={StaticResource LocalizedStrings}}"
                        Visibility="{Binding IsChecked, ElementName=tsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"/>
             <toolkit:TimePicker x:Name="tpReminderDateTime"
                                 Value="{Binding ReminderDateTime, Mode=TwoWay}" 

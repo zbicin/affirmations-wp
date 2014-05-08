@@ -32,23 +32,23 @@
     <i:Interaction.Behaviors>
         <cimbalinoBehaviors:ApplicationBarBehavior>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/add.png"
-                                                         Text="dodaj"
                                                          x:Name="buttonAdd"
+                                                         Text="{Binding Path=LocalizedResources.AppbarAdd, Source={StaticResource LocalizedStrings}}"
                                                          Click="buttonAdd_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/cogs.png"
-                                                         Text="powtórz teraz"
                                                          IsVisible="{Binding Source.ItemsSource.Count, Source={StaticResource listAffirmations}}"
                                                          x:Name="buttonRepeat"
+                                                         Text="{Binding Path=LocalizedResources.AppbarRepeat, Source={StaticResource LocalizedStrings}}"
                                                          Click="buttonRepeat_Click"/>
             <cimbalinoBehaviors:ApplicationBarBehavior.MenuItems>
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonSettings"
-                                                           Text="ustawienia"
+                                                           Text="{Binding Path=LocalizedResources.AppbarMenuItemSettings, Source={StaticResource LocalizedStrings}}"
                                                            Click="buttonSettings_Click" />
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonRate"
-                                                           Text="oceń i opisz"
+                                                           Text="{Binding Path=LocalizedResources.AppbarMenuItemRateAndReview, Source={StaticResource LocalizedStrings}}"
                                                            Click="buttonRate_Click" />
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonAbout"
-                                                           Text="o programie"
+                                                           Text="{Binding Path=LocalizedResources.AppbarMenuItemAbout, Source={StaticResource LocalizedStrings}}"
                                                            Click="buttonAbout_Click" />
             </cimbalinoBehaviors:ApplicationBarBehavior.MenuItems>
         </cimbalinoBehaviors:ApplicationBarBehavior>
@@ -56,10 +56,10 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+        <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitleCapitalized, Source={StaticResource LocalizedStrings}}"
                      x:Name="pvPages">
             <!--Pivot item one-->
-            <phone:PivotItem Header="witaj">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.PivotWelcomeTitle, Source={StaticResource LocalizedStrings}}">
                 <Grid>
                     <StackPanel Orientation="Vertical"
                                 Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}}">
@@ -68,7 +68,7 @@
                                 <toolkit:ContextMenu IsZoomEnabled="True"
                                                      x:Name="cmRepeat"
                                                      Opened="cmRepeat_Opened">
-                                    <toolkit:MenuItem Header="przypnij do ekranu startowego"
+                                    <toolkit:MenuItem Header="{Binding Path=LocalizedResources.PinToStart, Source={StaticResource LocalizedStrings}}"
                                                       x:Name="miPinRepetition"
                                                       Click="miPinRepetition_Click" />
                                 </toolkit:ContextMenu>
@@ -83,7 +83,7 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                    Stretch="None"/>
-                            <TextBlock Text="powtórz teraz"
+                                <TextBlock Text="{Binding Path=LocalizedResources.AppbarRepeat, Source={StaticResource LocalizedStrings}}"
                                        VerticalAlignment="Bottom"
                                        Style="{StaticResource PhoneTextTitle3Style}"
                                        Margin="12, 8, 12, 8"
@@ -95,13 +95,13 @@
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"
                                    Visibility="{Binding IsFirstRepetitionDone, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
-                                   Text="Naciśnij powyższy kafelek, aby powtórzyć swoje afirmacje."/>
-                        <!-- last repetition date -->
+                                   Text="{Binding Path=LocalizedResources.FirstRepetitionLabel, Source={StaticResource LocalizedStrings}}"/>
+                        <!-- last repetition date --> 
                         <TextBlock Style="{StaticResource PhoneTextSubtleStyle}"
                                    TextWrapping="Wrap"
                                    Margin="12,12,12,0"
                                    Visibility="{Binding IsFirstRepetitionDone, Converter={StaticResource BooleanToVisibility}}"
-                                   Text="Ostatnio powtarzałeś swoje afirmacje"/>
+                                   Text="{Binding Path=LocalizedResources.LastRepetitionDateLabel, Source={StaticResource LocalizedStrings}}"/>
                         <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
                                    Visibility="{Binding IsFirstRepetitionDone, Converter={StaticResource BooleanToVisibility}}"
                                    Text="{Binding LastRepetitionDate, Converter={StaticResource RelativeTime}, StringFormat='{}{0}.'}"/>
@@ -115,7 +115,7 @@
                                            Margin="12,12,12,0"
                                            Tap="TextBlock_Tap"
                                            Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}}"
-                                           Text="Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz. "/>
+                                           Text="{Binding Path=LocalizedResources.ReminderTimeLabel, Source={StaticResource LocalizedStrings}}"/>
                                 <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
                                            TextWrapping="Wrap"
                                            Tap="TextBlock_Tap"
@@ -127,17 +127,17 @@
                                            Margin="12,12,12,0"
                                            Tap="TextBlock_Tap"
                                            Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
-                                           Text="Przypomnienia o codziennej powtórce są "/>
+                                           Text="{Binding Path=LocalizedResources.NoRemindersLabel, Source={StaticResource LocalizedStrings}}"/>
                                 <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
                                            TextWrapping="Wrap"
                                            Tap="TextBlock_Tap"
                                            Visibility="{Binding IsReminderEnabled, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}"
-                                           Text="wyłączone."/>
+                                           Text="{Binding Path=LocalizedResources.RepetitionTimeOffLabel, Source={StaticResource LocalizedStrings}}"/>
                             </StackPanel>
                         </ListBoxItem>
-                    </StackPanel>
+                    </StackPanel> 
                     <StackPanel Visibility="{Binding Affirmations.Count, Converter={StaticResource IntegerToVisibility}, ConverterParameter=true}">
-                        <TextBlock Text="Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu."
+                        <TextBlock Text="{Binding Path=LocalizedResources.WelcomePivotPlaceholder, Source={StaticResource LocalizedStrings}}"
                            Style="{StaticResource PhoneTextGroupHeaderStyle}"
                            TextWrapping="Wrap"/>
                     </StackPanel>
@@ -145,7 +145,7 @@
             </phone:PivotItem>
 
             <!--Pivot item two-->
-            <phone:PivotItem Header="lista">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.PivotListTitle, Source={StaticResource LocalizedStrings}}">
                 <Grid x:Name="ContentPanel">
                         <phone:LongListSelector x:Name="listAffirmations" 
                                     ItemsSource="{Binding Affirmations}" 
@@ -159,7 +159,7 @@
                             Text="{Binding Text, Mode=TwoWay}"
                             Style="{StaticResource PhoneTextLargeStyle}"/>
                                     <TextBlock
-                                Text="{Binding CreatedAt, Converter={StaticResource RelativeTime}, StringFormat='Utworzono: {0}.'}"
+                                Text="{Binding CreatedAt, Converter={StaticResource RelativeTime}, StringFormat='TODO Utworzono: {0}.'}"
                                 Style="{StaticResource PhoneTextSubtleStyle}"/>
 
                                 </StackPanel>

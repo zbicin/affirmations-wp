@@ -88,6 +88,24 @@ namespace Affirmations.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to cancel.
+        /// </summary>
+        public static string AppbarCancel {
+            get {
+                return ResourceManager.GetString("AppbarCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to delete.
+        /// </summary>
+        public static string AppbarDelete {
+            get {
+                return ResourceManager.GetString("AppbarDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to finish.
         /// </summary>
         public static string AppbarFinish {
@@ -151,11 +169,38 @@ namespace Affirmations.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AFFIRMATIONS.
+        ///   Looks up a localized string similar to save.
+        /// </summary>
+        public static string AppbarSave {
+            get {
+                return ResourceManager.GetString("AppbarSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Affirmations.
         /// </summary>
         public static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AFFIRMATIONS.
+        /// </summary>
+        public static string ApplicationTitleCapitalized {
+            get {
+                return ResourceManager.GetString("ApplicationTitleCapitalized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Affirmations.
+        /// </summary>
+        public static string AppTitle {
+            get {
+                return ResourceManager.GetString("AppTitle", resourceCulture);
             }
         }
         
@@ -165,6 +210,15 @@ namespace Affirmations.Resources {
         public static string CreatedAtLabel {
             get {
                 return ResourceManager.GetString("CreatedAtLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EDIT AFFIRMATION.
+        /// </summary>
+        public static string EditAffirmationCapitalized {
+            get {
+                return ResourceManager.GetString("EditAffirmationCapitalized", resourceCulture);
             }
         }
         
@@ -232,7 +286,7 @@ namespace Affirmations.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tap the tile above to repeat your affirmations for the first time..
+        ///   Looks up a localized string similar to Tap the tile above to repeat your affirmations..
         /// </summary>
         public static string FirstRepetitionLabel {
             get {
@@ -246,6 +300,24 @@ namespace Affirmations.Resources {
         public static string LastRepetitionDateLabel {
             get {
                 return ResourceManager.GetString("LastRepetitionDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to repeat affirmations.
+        /// </summary>
+        public static string LiveTileTitle {
+            get {
+                return ResourceManager.GetString("LiveTileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEW AFFIRMATION.
+        /// </summary>
+        public static string NewAffirmationCapitalized {
+            get {
+                return ResourceManager.GetString("NewAffirmationCapitalized", resourceCulture);
             }
         }
         
@@ -300,6 +372,15 @@ namespace Affirmations.Resources {
         public static string ReminderTimeLabel {
             get {
                 return ResourceManager.GetString("ReminderTimeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to off..
+        /// </summary>
+        public static string RepetitionTimeOffLabel {
+            get {
+                return ResourceManager.GetString("RepetitionTimeOffLabel", resourceCulture);
             }
         }
         
