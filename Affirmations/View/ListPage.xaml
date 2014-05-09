@@ -158,9 +158,14 @@
                                     <TextBlock
                             Text="{Binding Text, Mode=TwoWay}"
                             Style="{StaticResource PhoneTextLargeStyle}"/>
-                                    <TextBlock
-                                Text="{Binding CreatedAt, Converter={StaticResource RelativeTime}, StringFormat='TODO Utworzono: {0}.'}"
-                                Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <StackPanel Orientation="Horizontal"
+                                                Margin="0">
+                                        <TextBlock Text="{Binding Path=LocalizedResources.CreatedAtLabel, Source={StaticResource LocalizedStrings}}"
+                                                   Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                        <TextBlock Text="{Binding CreatedAt, Converter={StaticResource RelativeTime}, StringFormat=': {0}.'}"
+                                                   Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                                    </StackPanel>
 
                                 </StackPanel>
                             </DataTemplate>
