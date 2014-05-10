@@ -277,7 +277,7 @@ namespace Affirmations.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \&quot;Failures\&quot; are only feedback..
+        ///   Looks up a localized string similar to Failures are only feedback..
         /// </summary>
         public static string ExampleAffirmation7 {
             get {
@@ -304,7 +304,7 @@ namespace Affirmations.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to repeat affirmations.
+        ///   Looks up a localized string similar to Repeat affirmations.
         /// </summary>
         public static string LiveTileTitle {
             get {
@@ -394,7 +394,7 @@ namespace Affirmations.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to en-US.
+        ///   Looks up a localized string similar to en.
         /// </summary>
         public static string ResourceLanguage {
             get {

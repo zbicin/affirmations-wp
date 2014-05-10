@@ -169,13 +169,13 @@
     <value>Mogę dokonać czegokolwiek zapragnę.</value>
   </data>
   <data name="ExampleAffirmation7" xml:space="preserve">
-    <value>\"Porażki\" to tylko informacja zwrotna.</value>
+    <value>Porażki to tylko informacja zwrotna.</value>
   </data>
   <data name="ExampleAffirmation6" xml:space="preserve">
     <value>Tylko ode mnie zależy to, jaki wpływ mają na moje zachowanie inni.</value>
   </data>
   <data name="FirstRepetitionLabel" xml:space="preserve">
-    <value>Tap the tile above to repeat your affirmations for the first time.</value>
+    <value>Naciśnij na kafelek, aby powtórzyć swoje afirmacje.</value>
   </data>
   <data name="LastRepetitionDateLabel" xml:space="preserve">
     <value>Ostatnio powtarzałeś swoje afirmacje</value>
@@ -232,7 +232,7 @@
     <value>Afirmacje</value>
   </data>
   <data name="LiveTileTitle" xml:space="preserve">
-    <value>powtórz afirmacje</value>
+    <value>Powtórz afirmacje</value>
   </data>
   <data name="RepetitionTimeOffLabel" xml:space="preserve">
     <value>wyłączone.</value>

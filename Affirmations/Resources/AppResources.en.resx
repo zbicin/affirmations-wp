@@ -175,7 +175,7 @@
     <value>I can achieve anything I want.</value>
   </data>
   <data name="ExampleAffirmation7" xml:space="preserve">
-    <value>\"Failures\" are only feedback.</value>
+    <value>Failures are only feedback.</value>
   </data>
   <data name="ExampleAffirmation6" xml:space="preserve">
     <value>The way I feel depends only on me.</value>
@@ -232,7 +232,7 @@
     <value>EDIT AFFIRMATION</value>
   </data>
   <data name="LiveTileTitle" xml:space="preserve">
-    <value>repeat affirmations</value>
+    <value>Repeat affirmations</value>
   </data>
   <data name="NewAffirmationCapitalized" xml:space="preserve">
     <value>NEW AFFIRMATION</value>
