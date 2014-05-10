@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Affirmations.ViewModel;
 using Affirmations.Model;
+using Affirmations.Resources;
 
 namespace Affirmations.View
 {
@@ -68,7 +69,7 @@ namespace Affirmations.View
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Ta afirmacja zostanie usunięta z Twojej listy.", "Afirmacje", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show(AppResources.RemoveDialogContent, AppResources.ApplicationTitle, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 App.ViewModel.Affirmations.RemoveAt(Convert.ToInt16(affirmationIndex));
                 App.ViewModel.SaveAffirmations();
@@ -77,6 +78,12 @@ namespace Affirmations.View
                 {
                     //user has no more affirmations left, the reminder is unnecessary
                     App.ViewModel.ReminderHelper.TryUnscheduleReminder();
+
+                    ShellTile repeatTile = ShellTile.ActiveTiles.SingleOrDefault(t => t.NavigationUri.ToString().Contains("RepeatPage.xaml"));
+                    if (repeatTile != null)
+                    {
+                        repeatTile.Delete();
+                    }
                 }
 
                 try

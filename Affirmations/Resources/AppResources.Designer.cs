@@ -376,6 +376,15 @@ namespace Affirmations.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This affirmation will be removed from your list..
+        /// </summary>
+        public static string RemoveDialogContent {
+            get {
+                return ResourceManager.GetString("RemoveDialogContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to off..
         /// </summary>
         public static string RepetitionTimeOffLabel {

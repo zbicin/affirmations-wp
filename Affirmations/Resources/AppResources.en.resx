@@ -240,4 +240,7 @@
   <data name="RepetitionTimeOffLabel" xml:space="preserve">
     <value>off.</value>
   </data>
+  <data name="RemoveDialogContent" xml:space="preserve">
+    <value>This affirmation will be removed from your list.</value>
+  </data>
 </root>

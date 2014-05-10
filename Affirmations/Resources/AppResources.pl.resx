@@ -237,4 +237,7 @@
   <data name="WelcomePivotPlaceholder" xml:space="preserve">
     <value>Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu.</value>
   </data>
+  <data name="RemoveDialogContent" xml:space="preserve">
+    <value>Ta afirmacja zostanie usunięta z Twojej listy.</value>
+  </data>
 </root>
