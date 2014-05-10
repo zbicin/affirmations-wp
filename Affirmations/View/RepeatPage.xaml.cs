@@ -82,7 +82,7 @@ namespace Affirmations.View
             App.ViewModel.ReminderHelper.TryScheduleReminder(App.ViewModel.LastRepetitionDate);
         }
 
-        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             if (viewModel.IsRepetitionFinished)
             {
@@ -90,7 +90,7 @@ namespace Affirmations.View
                 UpdateLastRepetitionDate();
             }
 
-            base.OnBackKeyPress(e);
+            base.OnNavigatedFrom(e);
         }
 
         private void PhoneApplicationPage_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)

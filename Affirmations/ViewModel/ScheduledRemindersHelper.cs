@@ -1,4 +1,5 @@
-﻿using Microsoft.Phone.Scheduler;
+﻿using Affirmations.Resources;
+using Microsoft.Phone.Scheduler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,7 @@ namespace Affirmations.ViewModel
             Reminder scheduledReminder = new Reminder(REMINDER_ID);
 
             scheduledReminder.BeginTime = BeginTime;
-            scheduledReminder.Content = "Nie powtarzałeś jeszcze dzisiaj afirmacji.";
+            scheduledReminder.Content = AppResources.ReminderContent;
             scheduledReminder.RecurrenceType = RecurrenceInterval.Daily;
 
             ScheduledActionService.Add(scheduledReminder);
