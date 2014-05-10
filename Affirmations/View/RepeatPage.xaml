@@ -30,15 +30,18 @@
     <i:Interaction.Behaviors>
         <cimbalinoBehaviors:ApplicationBarBehavior>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/back.png" 
+                                                         Text="{Binding Path=LocalizedResources.AppbarPrevious, Source={StaticResource LocalizedStrings}}"
                                                          IsEnabled="{Binding IsPreviousAffirmationAvailable}"
                                                          x:Name="buttonPrevious"
                                                          Click="buttonPrevious_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" 
+                                                         Text="{Binding Path=LocalizedResources.AppbarNext, Source={StaticResource LocalizedStrings}}"
                                                          IsVisible="{Binding IsFinishVisible, Converter={StaticResource InverseBoolean}}" 
                                                          IsEnabled="{Binding IsNextAffirmationAvailable}"
                                                          x:Name="buttonNext"
                                                          Click="buttonNext_Click"/>
             <cimbalinoBehaviors:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Check.png" 
+                                                         Text="{Binding Path=LocalizedResources.AppbarFinish, Source={StaticResource LocalizedStrings}}"
                                                          IsVisible="{Binding IsFinishVisible}" 
                                                          x:Name="buttonFinish"
                                                          Click="buttonFinish_Click"/>

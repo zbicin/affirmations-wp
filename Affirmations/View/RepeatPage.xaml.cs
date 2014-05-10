@@ -22,10 +22,6 @@ namespace Affirmations.View
 
             viewModel = new RepeatViewModel();
             DataContext = viewModel;
-
-            buttonPrevious.Text = AppResources.AppbarPrevious;
-            buttonNext.Text = AppResources.AppbarNext;
-            buttonFinish.Text = AppResources.AppbarFinish;
         }
 
         private void buttonNext_Click(object sender, EventArgs e)
