@@ -243,4 +243,15 @@
   <data name="RemoveDialogContent" xml:space="preserve">
     <value>This affirmation will be removed from your list.</value>
   </data>
+  <data name="AppbarMenuItemFeedback" xml:space="preserve">
+    <value>send feedback</value>
+  </data>
+  <data name="FeedbackMailContents" xml:space="preserve">
+    <value>Hi Chris,
+
+</value>
+  </data>
+  <data name="FeedbackMailTitle" xml:space="preserve">
+    <value>Affirmations Windows Phone app</value>
+  </data>
 </root>

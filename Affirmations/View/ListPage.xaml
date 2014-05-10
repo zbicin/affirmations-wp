@@ -47,6 +47,9 @@
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonRate"
                                                            Text="{Binding Path=LocalizedResources.AppbarMenuItemRateAndReview, Source={StaticResource LocalizedStrings}}"
                                                            Click="buttonRate_Click" />
+                <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonFeedback"
+                                                           Text="{Binding Path=LocalizedResources.AppbarMenuItemFeedback, Source={StaticResource LocalizedStrings}}"
+                                                           Click="buttonFeedback_Click" />
                 <cimbalinoBehaviors:ApplicationBarMenuItem x:Name="buttonAbout"
                                                            Text="{Binding Path=LocalizedResources.AppbarMenuItemAbout, Source={StaticResource LocalizedStrings}}"
                                                            Click="buttonAbout_Click" />

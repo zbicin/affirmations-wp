@@ -237,6 +237,17 @@
   <data name="RepetitionTimeOffLabel" xml:space="preserve">
     <value>wyłączone.</value>
   </data>
+  <data name="AppbarMenuItemFeedback" xml:space="preserve">
+    <value>zgłoś sugestię</value>
+  </data>
+  <data name="FeedbackMailContents" xml:space="preserve">
+    <value>Hej Krzyśku,
+
+</value>
+  </data>
+  <data name="FeedbackMailTitle" xml:space="preserve">
+    <value>Aplikacja Afirmacje dla Windows Phone</value>
+  </data>
   <data name="RemoveDialogContent" xml:space="preserve">
     <value>Ta afirmacja zostanie usunięta z Twojej listy.</value>
   </data>

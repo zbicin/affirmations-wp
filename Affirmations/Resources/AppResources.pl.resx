@@ -138,6 +138,9 @@
   <data name="AppbarMenuItemAbout" xml:space="preserve">
     <value>o programie</value>
   </data>
+  <data name="AppbarMenuItemFeedback" xml:space="preserve">
+    <value>zgłoś sugestię</value>
+  </data>
   <data name="AppbarMenuItemRateAndReview" xml:space="preserve">
     <value>oceń i opisz</value>
   </data>
@@ -189,6 +192,14 @@
   <data name="ExampleAffirmation7" xml:space="preserve">
     <value>Porażki to tylko informacja zwrotna.</value>
   </data>
+  <data name="FeedbackMailContents" xml:space="preserve">
+    <value>Hej Krzyśku,
+
+</value>
+  </data>
+  <data name="FeedbackMailTitle" xml:space="preserve">
+    <value>Aplikacja Afirmacje dla Windows Phone</value>
+  </data>
   <data name="FirstRepetitionLabel" xml:space="preserve">
     <value>Naciśnij na kafelek, aby powtórzyć swoje afirmacje.</value>
   </data>
@@ -219,6 +230,9 @@
   <data name="ReminderTimeLabel" xml:space="preserve">
     <value>Jeśli zapomnisz któregoś dnia o powtórce, przypomnę Ci o niej o godz.</value>
   </data>
+  <data name="RemoveDialogContent" xml:space="preserve">
+    <value>Ta afirmacja zostanie usunięta z Twojej listy.</value>
+  </data>
   <data name="RepetitionTimeOffLabel" xml:space="preserve">
     <value>wyłączone.</value>
   </data>
@@ -226,7 +240,7 @@
     <value>LeftToRight</value>
   </data>
   <data name="ResourceLanguage" xml:space="preserve">
-    <value>pl</value>
+    <value>pl-PL</value>
   </data>
   <data name="SettingsRemindersLabel" xml:space="preserve">
     <value>Przypomnienia</value>
@@ -236,8 +250,5 @@
   </data>
   <data name="WelcomePivotPlaceholder" xml:space="preserve">
     <value>Pusto tu. Dodaj afirmacje korzystając z przycisku na dole ekranu.</value>
-  </data>
-  <data name="RemoveDialogContent" xml:space="preserve">
-    <value>Ta afirmacja zostanie usunięta z Twojej listy.</value>
   </data>
 </root>

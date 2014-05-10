@@ -124,6 +124,15 @@ namespace Affirmations.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to send feedback.
+        /// </summary>
+        public static string AppbarMenuItemFeedback {
+            get {
+                return ResourceManager.GetString("AppbarMenuItemFeedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to rate and review.
         /// </summary>
         public static string AppbarMenuItemRateAndReview {
@@ -282,6 +291,26 @@ namespace Affirmations.Resources {
         public static string ExampleAffirmation7 {
             get {
                 return ResourceManager.GetString("ExampleAffirmation7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hi Chris,
+        ///
+        ///.
+        /// </summary>
+        public static string FeedbackMailContents {
+            get {
+                return ResourceManager.GetString("FeedbackMailContents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Affirmations Windows Phone app.
+        /// </summary>
+        public static string FeedbackMailTitle {
+            get {
+                return ResourceManager.GetString("FeedbackMailTitle", resourceCulture);
             }
         }
         

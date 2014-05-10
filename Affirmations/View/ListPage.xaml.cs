@@ -12,6 +12,7 @@ using Affirmations.Model;
 using Affirmations.ViewModel;
 using System.Collections.ObjectModel;
 using System.Text;
+using Microsoft.Phone.Tasks;
 
 namespace Affirmations.View
 {
@@ -120,6 +121,17 @@ namespace Affirmations.View
             ShellTile repeatTile = ShellTile.ActiveTiles.SingleOrDefault(t => t.NavigationUri.Equals(RepeatUri));
 
             miPinRepetition.IsEnabled = repeatTile == null;
+        }
+
+        private void buttonFeedback_Click(object sender, EventArgs e)
+        {
+            EmailComposeTask emailComposeTask = new EmailComposeTask();
+
+            emailComposeTask.Subject = AppResources.FeedbackMailTitle;
+            emailComposeTask.Body = AppResources.FeedbackMailContents;
+            emailComposeTask.To = "k.zbicinski@gmail.com";
+
+            emailComposeTask.Show();
         }
     }
 }

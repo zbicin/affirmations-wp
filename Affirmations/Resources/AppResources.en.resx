@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ResourceFlowDirection" xml:space="preserve">
-    <value>LeftToRight</value>
-  </data>
-  <data name="ResourceLanguage" xml:space="preserve">
-    <value>en</value>
-  </data>
-  <data name="ApplicationTitleCapitalized" xml:space="preserve">
-    <value>AFFIRMATIONS</value>
-  </data>
   <data name="AboutDialogContents" xml:space="preserve">
     <value>If you have any questions, problems or suggestions, catch me via e-mail</value>
   </data>
@@ -135,11 +126,20 @@
   <data name="AppbarAdd" xml:space="preserve">
     <value>add</value>
   </data>
+  <data name="AppbarCancel" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="AppbarDelete" xml:space="preserve">
+    <value>delete</value>
+  </data>
   <data name="AppbarFinish" xml:space="preserve">
     <value>finish</value>
   </data>
   <data name="AppbarMenuItemAbout" xml:space="preserve">
     <value>about</value>
+  </data>
+  <data name="AppbarMenuItemFeedback" xml:space="preserve">
+    <value>send feedback</value>
   </data>
   <data name="AppbarMenuItemRateAndReview" xml:space="preserve">
     <value>rate and review</value>
@@ -156,8 +156,23 @@
   <data name="AppbarRepeat" xml:space="preserve">
     <value>repeat now</value>
   </data>
+  <data name="AppbarSave" xml:space="preserve">
+    <value>save</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Affirmations</value>
+  </data>
+  <data name="ApplicationTitleCapitalized" xml:space="preserve">
+    <value>AFFIRMATIONS</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Affirmations</value>
+  </data>
   <data name="CreatedAtLabel" xml:space="preserve">
     <value>Created</value>
+  </data>
+  <data name="EditAffirmationCapitalized" xml:space="preserve">
+    <value>EDIT AFFIRMATION</value>
   </data>
   <data name="ExampleAffirmation1" xml:space="preserve">
     <value>I treat my dreams as my plans.</value>
@@ -174,17 +189,31 @@
   <data name="ExampleAffirmation5" xml:space="preserve">
     <value>I can achieve anything I want.</value>
   </data>
+  <data name="ExampleAffirmation6" xml:space="preserve">
+    <value>The way I feel depends only on me.</value>
+  </data>
   <data name="ExampleAffirmation7" xml:space="preserve">
     <value>Failures are only feedback.</value>
   </data>
-  <data name="ExampleAffirmation6" xml:space="preserve">
-    <value>The way I feel depends only on me.</value>
+  <data name="FeedbackMailContents" xml:space="preserve">
+    <value>Hi Chris,
+
+</value>
+  </data>
+  <data name="FeedbackMailTitle" xml:space="preserve">
+    <value>Affirmations Windows Phone app</value>
   </data>
   <data name="FirstRepetitionLabel" xml:space="preserve">
     <value>Tap the tile above to repeat your affirmations.</value>
   </data>
   <data name="LastRepetitionDateLabel" xml:space="preserve">
     <value>You've repeated your affirmations</value>
+  </data>
+  <data name="LiveTileTitle" xml:space="preserve">
+    <value>Repeat affirmations</value>
+  </data>
+  <data name="NewAffirmationCapitalized" xml:space="preserve">
+    <value>NEW AFFIRMATION</value>
   </data>
   <data name="NoRemindersLabel" xml:space="preserve">
     <value>Daily repetition reminders are</value>
@@ -204,6 +233,18 @@
   <data name="ReminderTimeLabel" xml:space="preserve">
     <value>If you forget about repetition, I'll let you know at</value>
   </data>
+  <data name="RemoveDialogContent" xml:space="preserve">
+    <value>This affirmation will be removed from your list.</value>
+  </data>
+  <data name="RepetitionTimeOffLabel" xml:space="preserve">
+    <value>off.</value>
+  </data>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>en</value>
+  </data>
   <data name="SettingsRemindersLabel" xml:space="preserve">
     <value>Reminders</value>
   </data>
@@ -212,35 +253,5 @@
   </data>
   <data name="WelcomePivotPlaceholder" xml:space="preserve">
     <value>It's empty in here. Add affirmations using the button on the bottom.</value>
-  </data>
-  <data name="AppbarCancel" xml:space="preserve">
-    <value>cancel</value>
-  </data>
-  <data name="AppbarDelete" xml:space="preserve">
-    <value>delete</value>
-  </data>
-  <data name="AppbarSave" xml:space="preserve">
-    <value>save</value>
-  </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>Affirmations</value>
-  </data>
-  <data name="AppTitle" xml:space="preserve">
-    <value>Affirmations</value>
-  </data>
-  <data name="EditAffirmationCapitalized" xml:space="preserve">
-    <value>EDIT AFFIRMATION</value>
-  </data>
-  <data name="LiveTileTitle" xml:space="preserve">
-    <value>Repeat affirmations</value>
-  </data>
-  <data name="NewAffirmationCapitalized" xml:space="preserve">
-    <value>NEW AFFIRMATION</value>
-  </data>
-  <data name="RepetitionTimeOffLabel" xml:space="preserve">
-    <value>off.</value>
-  </data>
-  <data name="RemoveDialogContent" xml:space="preserve">
-    <value>This affirmation will be removed from your list.</value>
   </data>
 </root>
