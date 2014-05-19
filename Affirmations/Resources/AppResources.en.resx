@@ -160,10 +160,10 @@
     <value>save</value>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>Affirmations</value>
+    <value>Affirmations Reminder</value>
   </data>
   <data name="ApplicationTitleCapitalized" xml:space="preserve">
-    <value>AFFIRMATIONS</value>
+    <value>AFFIRMATIONS REMINDER</value>
   </data>
   <data name="AppTitle" xml:space="preserve">
     <value>Affirmations</value>
@@ -252,6 +252,6 @@
     <value>Reminder time</value>
   </data>
   <data name="WelcomePivotPlaceholder" xml:space="preserve">
-    <value>It's empty in here. Add affirmations using the button on the bottom.</value>
+    <value>It's lonely in here. Add affirmations using the button at the bottom.</value>
   </data>
 </root>

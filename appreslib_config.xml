@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Projects>
+	<Project Name="Affirmations">
+		<Language Name="Neutral">
+			<AppTitle>Affirmations Reminder</AppTitle>
+			<TileText>Affirmations</TileText>		
+		</Language>
+		
+		<Language Name="English (United States)" LocaleID="0409">
+			<AppTitle>Affirmations Reminder</AppTitle>
+			<TileText>Affirmations</TileText>		
+		</Language>
+		
+		<Language Name="Polish" LocaleID="0415">
+			<AppTitle>Afirmacje</AppTitle>
+			<TileText>Afirmacje</TileText>		
+		</Language>
+	</Project>
+</Projects>
