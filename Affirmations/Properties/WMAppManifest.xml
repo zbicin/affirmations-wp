@@ -3,7 +3,7 @@
   <DefaultLanguage xmlns="" code="en-US" />
   <Languages xmlns="">
     <Language code="en-US" />
-    <Language code="pl-PL" />
+    <Language code="pl" />
   </Languages>
   <App xmlns="" ProductID="{c9c533a5-b303-4478-a60d-9d716d375f7c}" Title="@AppResLib.dll,-100" RuntimeType="Silverlight" Version="1.0.3.0" Genre="apps.normal" Author="Krzysztof Zbiciński" Description="Aplikacja wspomagająca skuteczne powtarzanie afirmacji." Publisher="Krzysztof Zbiciński" PublisherID="{ba192825-442e-4646-a5a8-449e67d96a70}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
