@@ -78,6 +78,7 @@
                             </toolkit:ContextMenuService.ContextMenu>
                             <Grid Height="210"
                               HorizontalAlignment="Stretch"
+                              MaxWidth="430"
                               Margin="12,0,12,12"
                               toolkit:TiltEffect.IsTiltEnabled="True"
                               Background="{StaticResource PhoneAccentBrush}"
