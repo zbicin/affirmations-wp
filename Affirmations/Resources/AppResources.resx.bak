@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutDialogContents" xml:space="preserve">
+    <value>If you have any questions, problems or suggestions, catch me via e-mail</value>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AppbarAdd" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="AppbarCancel" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="AppbarDelete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="AppbarFinish" xml:space="preserve">
+    <value>finish</value>
+  </data>
+  <data name="AppbarMenuItemAbout" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="AppbarMenuItemRateAndReview" xml:space="preserve">
+    <value>rate and review</value>
+  </data>
+  <data name="AppbarMenuItemSettings" xml:space="preserve">
+    <value>settings</value>
+  </data>
+  <data name="AppbarNext" xml:space="preserve">
+    <value>next</value>
+  </data>
+  <data name="AppbarPrevious" xml:space="preserve">
+    <value>previous</value>
+  </data>
+  <data name="AppbarRepeat" xml:space="preserve">
+    <value>repeat now</value>
+  </data>
+  <data name="AppbarSave" xml:space="preserve">
+    <value>save</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Affirmations Reminder</value>
+  </data>
+  <data name="ApplicationTitleCapitalized" xml:space="preserve">
+    <value>AFFIRMATIONS REMINDER</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Affirmations</value>
+  </data>
+  <data name="CreatedAtLabel" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="EditAffirmationCapitalized" xml:space="preserve">
+    <value>EDIT AFFIRMATION</value>
+  </data>
+  <data name="ExampleAffirmation1" xml:space="preserve">
+    <value>I treat my dreams as my plans.</value>
+  </data>
+  <data name="ExampleAffirmation2" xml:space="preserve">
+    <value>Everyday is a great opportunity to experience something unbelievable.</value>
+  </data>
+  <data name="ExampleAffirmation3" xml:space="preserve">
+    <value>It's me who decide how my life looks like.</value>
+  </data>
+  <data name="ExampleAffirmation4" xml:space="preserve">
+    <value>My time is here and now.</value>
+  </data>
+  <data name="ExampleAffirmation5" xml:space="preserve">
+    <value>I can achieve anything I want.</value>
+  </data>
+  <data name="ExampleAffirmation6" xml:space="preserve">
+    <value>The way I feel depends only on me.</value>
+  </data>
+  <data name="ExampleAffirmation7" xml:space="preserve">
+    <value>Failures are only feedback.</value>
+  </data>
+  <data name="FirstRepetitionLabel" xml:space="preserve">
+    <value>Tap the tile above to repeat your affirmations.</value>
+  </data>
+  <data name="LastRepetitionDateLabel" xml:space="preserve">
+    <value>You've repeated your affirmations</value>
+  </data>
+  <data name="LiveTileTitle" xml:space="preserve">
+    <value>Repeat affirmations</value>
+  </data>
+  <data name="NewAffirmationCapitalized" xml:space="preserve">
+    <value>NEW AFFIRMATION</value>
+  </data>
+  <data name="NoRemindersLabel" xml:space="preserve">
+    <value>Daily repetition reminders are</value>
+  </data>
+  <data name="PinToStart" xml:space="preserve">
+    <value>pin to start</value>
+  </data>
+  <data name="PivotListTitle" xml:space="preserve">
+    <value>list</value>
+  </data>
+  <data name="PivotWelcomeTitle" xml:space="preserve">
+    <value>welcome</value>
+  </data>
+  <data name="ReminderContent" xml:space="preserve">
+    <value>You haven't repeated your affirmations today.</value>
+  </data>
+  <data name="ReminderTimeLabel" xml:space="preserve">
+    <value>If you forget about repetition, I'll let you know at</value>
+  </data>
+  <data name="RepetitionTimeOffLabel" xml:space="preserve">
+    <value>off.</value>
+  </data>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="SettingsRemindersLabel" xml:space="preserve">
+    <value>Reminders</value>
+  </data>
+  <data name="SettingsReminderTimeLabel" xml:space="preserve">
+    <value>Reminder time</value>
+  </data>
+  <data name="WelcomePivotPlaceholder" xml:space="preserve">
+    <value>It's lonely in here. Add affirmations using the button at the bottom.</value>
+  </data>
+  <data name="RemoveDialogContent" xml:space="preserve">
+    <value>This affirmation will be removed from your list.</value>
+  </data>
+  <data name="AppbarMenuItemFeedback" xml:space="preserve">
+    <value>send feedback</value>
+  </data>
+  <data name="FeedbackMailContents" xml:space="preserve">
+    <value>Hi Chris,
+
+</value>
+  </data>
+  <data name="FeedbackMailTitle" xml:space="preserve">
+    <value>Affirmations Windows Phone app</value>
+  </data>
+</root>
